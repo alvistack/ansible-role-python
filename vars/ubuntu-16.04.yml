@@ -14,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  roles:
-    - role: ansible-role-python
+_apt: [
+  { state: "latest", name: "python" },
+  { state: "latest", name: "python-pip" },
+]
+_pip: [
+]
