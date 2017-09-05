@@ -18,21 +18,21 @@ env:
     - ANSIBLE_LOG_PATH: './ansible.log'
     - ANSIBLE_ROLES_PATH: '../'
   matrix:
-    - DOCKER_REPO: 'ubuntu'
-      DOCKER_VERSION: '14.04'
-    - DOCKER_REPO: 'ubuntu'
-      DOCKER_VERSION: '16.04'
-#    - DOCKER_REPO: 'centos'
-#      DOCKER_VERSION: '6'
-#    - DOCKER_REPO: 'centos'
-#      DOCKER_VERSION: '7'
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '14.04'
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '16.04'
+#    - DOCKER_NAME: 'centos'
+#      DOCKER_TAG: '6'
+#    - DOCKER_NAME: 'centos'
+#      DOCKER_TAG: '7'
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
-  - docker pull $DOCKER_REPO:$DOCKER_VERSION
-  - docker run -itd --name docker_container $DOCKER_REPO:$DOCKER_VERSION
-  - sh -c "if [ '$DOCKER_REPO' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update"
-  - sh -c "if [ '$DOCKER_REPO' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python"
+  - docker pull $DOCKER_NAME:$DOCKER_TAG
+  - docker run -itd --name docker_container $DOCKER_NAME:$DOCKER_TAG
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update"
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python"
 
 install:
   - pip install -r requirements.txt
