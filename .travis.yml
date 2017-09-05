@@ -38,7 +38,7 @@ before_install:
 
 install:
   - pip install -r requirements.txt
-#  - ansible-galaxy install -r ansible-role-requirements.yml
+#  - ansible-galaxy install -r tests/ansible-role-requirements.yml
 
 script:
   - yamllint -c .yamllint .
