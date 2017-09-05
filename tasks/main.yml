@@ -37,7 +37,7 @@
     name: "{{ item.name | default(None) or omit }}"
     state: "{{ item.state | default(None) or omit }}"
   with_items: "{{ _yum }}"
-  when: ansible_os_family == "Redhat"
+  when: ansible_os_family == "RedHat"
   tags: python
 
 - name: pip install
