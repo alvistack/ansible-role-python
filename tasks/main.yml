@@ -42,13 +42,6 @@
 
 - name: pip install
   pip:
-    name: "pip"
-    state: "latest"
-    extra_args: "--upgrade"
-  tags: python
-
-- name: pip install
-  pip:
     name: "{{ item.name | default(None) or omit }}"
     state: "{{ item.state | default(None) or omit }}"
     extra_args: "--upgrade"
