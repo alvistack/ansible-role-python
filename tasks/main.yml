@@ -36,6 +36,6 @@
   pip:
     name: "{{ item.name | default(None) or omit }}"
     state: "{{ item.state | default(None) or omit }}"
-    extra_args: "--upgrade --upgrade-strategy only-if-needed"
+    extra_args: "--upgrade"
   with_items: "{{ _pip }}"
   tags: python
