@@ -24,20 +24,14 @@
     - "{{ ansible_os_family | lower }}.yml"
   tags: python
 
-- name: apt-get install
-  apt:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _apt }}"
-  when: ansible_os_family == "Debian"
-  tags: python
-
-- name: yum install
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _yum }}"
-  when: ansible_os_family == "RedHat"
+- name: include release specific tasks
+  include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
   tags: python
 
 - name: pip install
