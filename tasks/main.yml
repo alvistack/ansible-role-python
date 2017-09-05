@@ -15,29 +15,27 @@
 # limitations under the License.
 
 - name: include release specific variables
-  include_vars: "{{ item }}"
+  include_vars: "{{ loop_var }}"
   with_first_found:
     - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
     - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
     - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
     - "{{ ansible_distribution | lower }}.yml"
     - "{{ ansible_os_family | lower }}.yml"
+  loop_control:
+    loop_var: "loop_var"
   tags: python
 
-- name: apt-get install
-  apt:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _apt }}"
-  when: ansible_os_family == "Debian"
-  tags: python
-
-- name: yum install
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _yum }}"
-  when: ansible_os_family == "RedHat"
+- name: include release specific tasks
+  include: "{{ loop_var }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+  loop_control:
+    loop_var: "loop_var"
   tags: python
 
 - name: pip install
