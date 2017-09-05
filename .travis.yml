@@ -22,10 +22,10 @@ env:
       DOCKER_TAG: '14.04'
     - DOCKER_NAME: 'ubuntu'
       DOCKER_TAG: '16.04'
-#    - DOCKER_NAME: 'centos'
-#      DOCKER_TAG: '6'
-#    - DOCKER_NAME: 'centos'
-#      DOCKER_TAG: '7'
+    - DOCKER_NAME: 'centos'
+      DOCKER_TAG: '6'
+    - DOCKER_NAME: 'centos'
+      DOCKER_TAG: '7'
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
@@ -33,6 +33,8 @@ before_install:
   - docker run -itd --name docker_container $DOCKER_NAME:$DOCKER_TAG
   - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update; fi"
   - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install python; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum update; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y install python; fi"
 
 install:
   - pip install -r requirements.txt

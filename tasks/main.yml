@@ -32,6 +32,14 @@
   when: ansible_os_family == "Debian"
   tags: python
 
+- name: yum install
+  yum:
+    name: "{{ item.name | default(None) or omit }}"
+    state: "{{ item.state | default(None) or omit }}"
+  with_items: "{{ _yum }}"
+  when: ansible_os_family == "Redhat"
+  tags: python
+
 - name: pip install
   pip:
     name: "pip"
