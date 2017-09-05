@@ -29,8 +29,8 @@ env:
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
-  - docker pull $DOCKER_IMAGE
-  - docker run -itd --name docker_container $DOCKER_IMAGE
+  - docker pull $DOCKER_REPO:$DOCKER_VERSION
+  - docker run -itd --name docker_container $DOCKER_REPO:$DOCKER_VERSION
   - sh -c "if [ '$DOCKER_REPO' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update"
   - sh -c "if [ '$DOCKER_REPO' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python"
 
