@@ -1,5 +1,5 @@
 Ansible Role for Python
-====================
+=======================
 
 [![Build Status](https://travis-ci.org/alvistack/ansible-role-python.svg?branch=master)](https://travis-ci.org/alvistack/ansible-role-python)
 [![GitHub tag](https://img.shields.io/github/tag/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python)
@@ -12,7 +12,7 @@ Requirements
 
 This role require Ansible 2.3 or higher.
 
-This role was designed for Ubuntu Server 14.04 LTS and Ubuntu Server 16.04 LTS.
+This role was designed for Ubuntu 16.04/14.04 or CentOS 7/6.
 
 Role Variables
 --------------
