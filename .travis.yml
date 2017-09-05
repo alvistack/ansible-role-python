@@ -31,8 +31,8 @@ before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
   - docker pull $DOCKER_NAME:$DOCKER_TAG
   - docker run -itd --name docker_container $DOCKER_NAME:$DOCKER_TAG
-  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update"
-  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python"
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python; fi"
 
 install:
   - pip install -r requirements.txt
