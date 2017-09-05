@@ -32,6 +32,8 @@
     - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
     - "{{ ansible_distribution | lower }}.yml"
     - "{{ ansible_os_family | lower }}.yml"
+  loop_control:
+    loop_var: "include_item"
   tags: python
 
 - name: pip install
