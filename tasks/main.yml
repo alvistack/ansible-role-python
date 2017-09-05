@@ -26,23 +26,24 @@
 
 - name: apt-get install
   apt:
-    name: "{{ item.name | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   with_items: "{{ _apt }}"
   when: ansible_os_family == "Debian"
   tags: python
 
-- name: pip install
-  pip:
-    name: "pip"
-    state: "latest"
-    extra_args: "--upgrade"
+- name: yum install
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _yum }}"
+  when: ansible_os_family == "RedHat"
   tags: python
 
 - name: pip install
   pip:
-    name: "{{ item.name | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
     extra_args: "--upgrade"
   with_items: "{{ _pip }}"
   tags: python
