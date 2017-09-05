@@ -32,7 +32,7 @@ before_install:
   - docker pull $DOCKER_NAME:$DOCKER_TAG
   - docker run -itd --name docker_container $DOCKER_NAME:$DOCKER_TAG
   - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update; fi"
-  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install python; fi"
 
 install:
   - pip install -r requirements.txt

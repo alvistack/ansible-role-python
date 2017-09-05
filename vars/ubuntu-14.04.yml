@@ -16,6 +16,7 @@
 
 _apt: [
   { state: "latest", name: "python" },
+  { state: "latest", name: "python-dev" },
   { state: "latest", name: "python-pip" },
 ]
 _pip: [
