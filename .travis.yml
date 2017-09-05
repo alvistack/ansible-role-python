@@ -1,0 +1,49 @@
+---
+
+sudo: required
+
+dist: trusty
+
+language: python
+
+python:
+  - 2.7
+
+services:
+  - docker
+
+env:
+  global:
+    - ANSIBLE_FORCE_COLOR: true
+    - ANSIBLE_LOG_PATH: './ansible.log'
+    - ANSIBLE_ROLES_PATH: '../'
+  matrix:
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '14.04'
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '16.04'
+#    - DOCKER_NAME: 'centos'
+#      DOCKER_TAG: '6'
+#    - DOCKER_NAME: 'centos'
+#      DOCKER_TAG: '7'
+
+before_install:
+  - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
+  - docker pull $DOCKER_NAME:$DOCKER_TAG
+  - docker run -itd --name docker_container $DOCKER_NAME:$DOCKER_TAG
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get update; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install python; fi"
+
+install:
+  - pip install -r requirements.txt
+#  - ansible-galaxy install -r ansible-role-requirements.yml
+
+script:
+  - yamllint -c .yamllint .
+  - ansible-playbook -i docker_container, -c docker tests/test.yml --syntax-check
+  - ansible-playbook -i docker_container, -c docker tests/test.yml --diff --verbose
+  - ansible-playbook -i docker_container, -c docker tests/test.yml --diff --verbose
+  - tail -n 1 ansible.log | grep -Eq 'changed=0 +unreachable=0 +failed=0'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
