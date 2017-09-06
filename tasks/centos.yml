@@ -15,8 +15,8 @@
 # limitations under the License.
 
 - name: yum list updates
-  yum:
-    update_cache: "yes"
+  shell: |
+    yum -y list updates
   tags: python
 
 - name: yum install
