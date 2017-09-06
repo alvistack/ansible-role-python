@@ -17,6 +17,8 @@
 - name: yum list updates
   shell: |
     yum -y list updates
+  register: yum_list_update_result
+  changed_when: yum_list_update_result.rc != 0
   tags: python
 
 - name: yum install
