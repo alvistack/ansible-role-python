@@ -37,8 +37,8 @@ before_install:
   - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y install epel-release python; fi"
 
 install:
-  - pip install -r requirements.txt
-#  - ansible-galaxy install -r tests/ansible-role-requirements.yml
+  - pip install -r ansible-requirements.txt
+#  - ansible-galaxy install -r tests/requirements.yml
 
 script:
   - yamllint -c .yamllint .
