@@ -14,13 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum list updates
-  shell: |
-    yum -y list updates
-  register: yum_list_update_result
-  changed_when: yum_list_update_result.rc != 0
-  tags: python
-
 - name: yum install
   yum:
     name: "{{ item.name }}"
