@@ -33,7 +33,7 @@ before_install:
   - docker run -itd --privileged --name docker_container $DOCKER_NAME:$DOCKER_TAG
   - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y update; fi"
   - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python; fi"
-  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y update; fi"
+  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum clean expire-cache; fi"
   - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y install epel-release python; fi"
 
 install:
