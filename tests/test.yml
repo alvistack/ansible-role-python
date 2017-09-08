@@ -18,3 +18,8 @@
   remote_user: root
   roles:
     - { role: ansible-role-python, gather_facts: "no" }
+
+- hosts: all
+  remote_user: root
+  roles:
+    - role: ansible-role-python
