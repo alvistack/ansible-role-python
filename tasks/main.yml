@@ -16,11 +16,15 @@
 
 - name: bootstrap python with apt-get
   raw: command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get -y install python-minimal
+  register: bootstrap_python_result
+  changed_when: bootstrap_python_result.rc != 0
   ignore_errors: "yes"
   tags: python
 
 - name: bootstrap python with yum
   raw: command -v yum >/dev/null 2>&1 && yum -y install epel-release && yum -y install python
+  register: bootstrap_python_result
+  changed_when: bootstrap_python_result.rc != 0
   ignore_errors: "yes"
   tags: python
 
