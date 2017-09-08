@@ -30,7 +30,7 @@ env:
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
   - docker pull $DOCKER_NAME:$DOCKER_TAG
-  - docker run -itd --privileged --name docker_container $DOCKER_NAME:$DOCKER_TAG
+  - docker run -itd --privileged --name docker_container -v /var/run/docker.sock:/var/run/docker.sock $DOCKER_NAME:$DOCKER_TAG
 
 install:
   - pip install -r ansible-requirements.txt
