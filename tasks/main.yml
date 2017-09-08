@@ -24,7 +24,7 @@
   ignore_errors: "yes"
   tags: python
 
-- name: gather_facts: yes
+- name: manually gather facts
   setup:
   tags: python
 
