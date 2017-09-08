@@ -55,18 +55,18 @@
   tags: python
 
 - debug:
-    msg: "{{ item.0 }}, {{ item.1 }}"
+    msg: "{{ item.1.key }}, {{ item.1.value }}"
   with_indexed_items: "{{ _pip }}"
 
 - name: pip install
   pip:
-    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
+    "{{ item.1.key }}": "{{ item.1.value | default(None) or omit }}"
     extra_args: "--upgrade"
-  with_subelements: "{{ _pip }}"
+  with_indexed_items: "{{ _pip }}"
   tags: python
 
 - name: pip install
   pip:
-    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
-  with_subelements: "{{ pip }}"
+    "{{ item.1.key }}": "{{ item.1.value | default(None) or omit }}"
+  with_indexed_items: "{{ pip }}"
   tags: python
