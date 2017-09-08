@@ -21,9 +21,6 @@ _apt: [
   { state: "latest", name: "python-dev" },
   { state: "latest", name: "python-minimal" },
   { state: "latest", name: "python-pip" },
-  { state: "latest", name: "python3-dev" },
-  { state: "latest", name: "python3-minimal" },
-  { state: "latest", name: "python3-pip" },
 ]
 _pip: [
   { state: "latest", name: "ndg-httpsclient" },
