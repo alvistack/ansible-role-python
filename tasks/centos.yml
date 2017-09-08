@@ -14,6 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: yum -y install epel-release
+  raw: yum -y install epel-release
+  tags: python
+
+- name: yum -y install python
+  raw: yum -y install python
+  tags: python
+
 - name: yum install
   yum:
     name: "{{ item.name }}"

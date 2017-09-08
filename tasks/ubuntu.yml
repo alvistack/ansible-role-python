@@ -15,9 +15,11 @@
 # limitations under the License.
 
 - name: apt-get update
-  apt:
-    cache_valid_time: "3600"
-    update_cache: "yes"
+  raw: apt-get update
+  tags: python
+
+- name: apt-get install python-minimal
+  raw: apt-get -y install python-minimal
   tags: python
 
 - name: apt-get install

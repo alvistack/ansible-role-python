@@ -15,6 +15,7 @@
 # limitations under the License.
 
 _yum: [
+  { state: "latest", name: "epel-release" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
   { state: "latest", name: "openssl-devel" },
