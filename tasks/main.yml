@@ -58,11 +58,11 @@
   pip:
     "{{ item.key }}": "{{ item.value | default(None) or omit }}"
     extra_args: "--upgrade"
-  with_dict: "{{ _pip }}"
+  with_subelements: "{{ _pip }}"
   tags: python
 
 - name: pip install
   pip:
     "{{ item.key }}": "{{ item.value | default(None) or omit }}"
-  with_dict: "{{ pip }}"
+  with_subelements: "{{ pip }}"
   tags: python
