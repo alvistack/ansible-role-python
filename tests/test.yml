@@ -24,3 +24,5 @@
   remote_user: root
   roles:
     - role: ansible-role-python
+      pip:
+        - { state: "latest", name: "yamllint" }

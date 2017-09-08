@@ -17,7 +17,33 @@ This role was designed for Ubuntu 16.04/14.04 or CentOS 7/6.
 Role Variables
 --------------
 
-No additional role variables.
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>parameter</th>
+<th>required</th>
+<th>default</th>
+<th>choices</th>
+<th>comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pip</td>
+<td>no</td>
+<td><code>[]</code></td>
+<td></td>
+<td>Passing <code>list</code> of parameters to <a href="http://docs.ansible.com/ansible/pip_module.html">pip module</a>.</td>
+</tr>
+</tbody>
+</table>
 
 Dependencies
 ------------
