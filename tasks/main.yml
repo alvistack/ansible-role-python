@@ -56,13 +56,13 @@
 
 - name: pip install
   pip:
-    args: "{{ item }}"
+    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
     extra_args: "--upgrade"
-  with_items: "{{ _pip }}"
+  with_dict: "{{ lookup('items', _pip) }}"
   tags: python
 
 - name: pip install
   pip:
-    args: "{{ item }}"
-  with_items: "{{ pip }}"
+    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
+  with_dict: "{{ lookup('items', pip) }}"
   tags: python
