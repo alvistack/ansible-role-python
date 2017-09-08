@@ -54,6 +54,10 @@
     loop_var: "loop_var"
   tags: python
 
+- debug:
+    msg: "{{ item.0 }}, {{ item.1 }}"
+  with_indexed_items: "{{ _pip }}"
+
 - name: pip install
   pip:
     "{{ item.key }}": "{{ item.value | default(None) or omit }}"
