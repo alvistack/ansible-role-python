@@ -16,5 +16,11 @@
 
 - hosts: all
   remote_user: root
+  gather_facts: no
+  roles:
+    - role: ansible-role-python
+
+- hosts: all
+  remote_user: root
   roles:
     - role: ansible-role-python
