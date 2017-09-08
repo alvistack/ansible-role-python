@@ -15,7 +15,7 @@
 # limitations under the License.
 
 - name: bootstrap python with apt-get
-  raw: command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get -y python-minimal
+  raw: command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get -y install python-minimal
   ignore_errors: "yes"
   tags: python
 
