@@ -16,10 +16,12 @@
 
 - hosts: all
   remote_user: root
+  gather_facts: no
   roles:
-    - { role: ansible-role-python, gather_facts: "no" }
+    - role: ansible-role-python
 
 - hosts: all
   remote_user: root
+  gather_facts: yes
   roles:
     - role: ansible-role-python
