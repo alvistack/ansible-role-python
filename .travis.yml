@@ -24,8 +24,8 @@ env:
       DOCKER_TAG: '16.04'
     - DOCKER_NAME: 'centos'
       DOCKER_TAG: '6'
-    - DOCKER_NAME: 'centos'
-      DOCKER_TAG: '7'
+    - DOCKER_NAME: 'centos/systemd'
+      DOCKER_TAG: 'latest'
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
