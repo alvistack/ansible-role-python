@@ -56,6 +56,8 @@ Example Playbook
     - hosts: all
       roles:
         - role: python
+          pip:
+            - { state: "latest", name: "yamllint" }
 
 License
 -------
