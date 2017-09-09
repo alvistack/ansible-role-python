@@ -25,9 +25,9 @@ _yum: [
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
-  { state: "latest", name: "ndg-httpsclient" },
-  { state: "latest", name: "pip" },
-  { state: "latest", name: "pyasn1" },
-  { state: "latest", name: "pyopenssl" },
-  { state: "latest", name: "urllib3" },
+  { state: "latest", extra_args: "--upgrade", name: "ndg-httpsclient" },
+  { state: "latest", extra_args: "--upgrade", name: "pip" },
+  { state: "latest", extra_args: "--upgrade", name: "pyasn1" },
+  { state: "latest", extra_args: "--upgrade", name: "pyopenssl" },
+  { state: "latest", extra_args: "--upgrade", name: "urllib3" },
 ]
