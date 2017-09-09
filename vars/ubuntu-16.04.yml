@@ -23,5 +23,5 @@ _apt: [
   { state: "latest", name: "python-pip" },
 ]
 _pip: [
-  { state: "latest", extra_args: "--upgrade", name: "pip" },
+  { state: "latest", name: "pip" },
 ]
