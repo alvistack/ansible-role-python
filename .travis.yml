@@ -30,7 +30,7 @@ env:
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
   - docker pull $DOCKER_NAME:$DOCKER_TAG
-  - docker run -itd --privileged --name docker_container -v /var/run/docker.sock:/var/run/docker.sock $DOCKER_NAME:$DOCKER_TAG
+  - DOCKER_ID="$(docker run -itd --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run $DOCKER_NAME:$DOCKER_TAG | head -c12)"
 
 install:
   - pip install -r ansible-requirements.txt
@@ -38,9 +38,9 @@ install:
 
 script:
   - yamllint -c .yamllint .
-  - ansible-playbook -i docker_container, -c docker tests/test.yml --syntax-check
-  - ansible-playbook -i docker_container, -c docker tests/test.yml --diff --verbose
-  - ansible-playbook -i docker_container, -c docker tests/test.yml --diff --verbose
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --syntax-check
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff --verbose
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff --verbose
   - tail -n 1 ansible.log | grep -Eq 'changed=0 +unreachable=0 +failed=0'
 
 notifications:
