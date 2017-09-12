@@ -29,10 +29,10 @@
 
 - name: flush apt cache
   file:
-    path: "{{ item.path }}"
+    dest: "{{ item.dest }}"
     state: "{{ item.state }}"
   with_items:
-    - { state: "absent", path: "/var/cache/apt" }
-    - { state: "absent", path: "/var/lib/apt/lists" }
+    - { state: "absent", dest: "/var/cache/apt" }
+    - { state: "absent", dest: "/var/lib/apt/lists" }
   changed_when: false
   tags: python
