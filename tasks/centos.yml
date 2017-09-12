@@ -23,9 +23,9 @@
 
 - name: flush yum cache
   file:
-    path: "{{ item.path }}"
+    dest: "{{ item.dest }}"
     state: "{{ item.state }}"
   with_items:
-    - { state: "absent", path: "/var/cache/yum" }
+    - { state: "absent", dest: "/var/cache/yum" }
   changed_when: false
   tags: python
