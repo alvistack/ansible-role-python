@@ -27,4 +27,5 @@
     state: "{{ item.state }}"
   with_items:
     - { state: "absent", path: "/var/cache/yum" }
+  changed_when: false
   tags: python

@@ -34,4 +34,5 @@
   with_items:
     - { state: "absent", path: "/var/cache/apt" }
     - { state: "absent", path: "/var/lib/apt/lists" }
+  changed_when: false
   tags: python
