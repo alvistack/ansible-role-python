@@ -26,3 +26,12 @@
     state: "{{ item.state }}"
   with_items: "{{ _apt }}"
   tags: python
+
+- name: flush apt cache
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { state: "absent", path: "/var/cache/apt" }
+    - { state: "absent", path: "/var/lib/apt/lists" }
+  tags: python
