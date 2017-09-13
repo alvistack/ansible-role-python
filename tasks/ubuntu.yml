@@ -27,7 +27,7 @@
   with_items: "{{ _apt }}"
   tags: python
 
-- name: flush apt archives cache
+- name: apt-get -y clean
   shell: |
     apt-get -y clean
   changed_when: false
