@@ -31,7 +31,7 @@
   shell: |
     apt-get -y clean
   changed_when: false
-  tags: apt
+  tags: python
 
 - name: flush apt lists cache
   file:
@@ -40,4 +40,4 @@
   with_items:
     - { state: "absent", dest: "/var/lib/apt/lists" }
   changed_when: false
-  tags: apt
+  tags: python
