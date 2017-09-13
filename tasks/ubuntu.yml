@@ -41,8 +41,8 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   with_items:
-    - { state: "absent", dest: "/var/lib/apt/lists", user: "root", group: "root", mode: "0755" }
-    - { state: "directory", dest: "/var/lib/apt/lists", user: "root", group: "root", mode: "0755" }
-    - { state: "touch", dest: "/var/lib/apt/lists/lock", user: "root", group: "root", mode: "0640" }
+    - { state: "absent", dest: "/var/lib/apt/lists", owner: "root", group: "root", mode: "0755" }
+    - { state: "directory", dest: "/var/lib/apt/lists", owner: "root", group: "root", mode: "0755" }
+    - { state: "touch", dest: "/var/lib/apt/lists/lock", owner: "root", group: "root", mode: "0640" }
   changed_when: false
   tags: python
