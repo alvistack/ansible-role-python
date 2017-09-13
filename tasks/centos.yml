@@ -21,11 +21,8 @@
   with_items: "{{ _yum }}"
   tags: python
 
-- name: flush yum cache
-  file:
-    dest: "{{ item.dest }}"
-    state: "{{ item.state }}"
-  with_items:
-    - { state: "absent", dest: "/var/cache/yum" }
+- name: yum -y clean all
+  shell: |
+    yum -y clean all
   changed_when: false
   tags: python
