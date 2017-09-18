@@ -4,6 +4,7 @@ Ansible Role for Python
 [![Build Status](https://travis-ci.org/alvistack/ansible-role-python.svg?branch=master)](https://travis-ci.org/alvistack/ansible-role-python)
 [![GitHub tag](https://img.shields.io/github/tag/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python/blob/master/LICENSE)
+[![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.python-blue.svg)](https://galaxy.ansible.com/alvistack/python)
 
 Ansible Role for Python Installation.
 
