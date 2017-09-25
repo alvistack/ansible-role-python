@@ -26,3 +26,24 @@
     - role: ansible-role-python
       pip:
         - { state: "latest", name: "yamllint" }
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: python --version
+      shell: |
+        python --version
+      register: python_version_result
+      changed_when: python_version_result.rc != 0
+
+    - name: pip --version
+      shell: |
+        pip --version
+      register: pip_version_result
+      changed_when: pip_version_result.rc != 0
+
+    - name: pip list
+      shell: |
+        pip list
+      register: pip_list_result
+      changed_when: pip_list_result.rc != 0
