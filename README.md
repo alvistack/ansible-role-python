@@ -8,6 +8,8 @@ Ansible Role for Python
 
 Ansible Role for Python Installation.
 
+This role assume Python **not yet installed** in the remote client (e.g. Ubuntu 16.0 Cloud Imagee or Docker Image), so you may run with `gather_facts: no` for initial Python installation.
+
 Requirements
 ------------
 
@@ -27,6 +29,11 @@ Dependencies
 
 Example Playbook
 ----------------
+
+    - hosts: all
+      gather_facts: no
+      roles:
+        - role: python
 
     - hosts: all
       roles:
