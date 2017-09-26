@@ -30,16 +30,7 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: all
-      gather_facts: no
-      roles:
-        - role: python
-
-    - hosts: all
-      roles:
-        - role: python
-          pip:
-            - { state: "latest", name: "yamllint" }
+[tests/test.yml](tests/test.yml)
 
 License
 -------

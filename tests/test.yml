@@ -14,12 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Use `gather_faces: no` to initialize Python on system that not yet
+# pre-installed with Python (e.g. Ubuntu 16.04 Cloud Image and Docker Image).
 - hosts: all
   remote_user: root
   gather_facts: no
   roles:
     - role: ansible-role-python
 
+# Passing list of parameters to pip module.
+# See http://docs.ansible.com/ansible/latest/pip_module.html
 - hosts: all
   remote_user: root
   roles:
