@@ -46,8 +46,7 @@
       register: pip_version_result
       changed_when: pip_version_result.rc != 0
 
-    - name: pip list
-      shell: |
-        pip list
-      register: pip_list_result
-      changed_when: pip_list_result.rc != 0
+    - name: pip
+      pip:
+        name: "yamllint"
+        state: "latest"
