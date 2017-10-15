@@ -26,6 +26,12 @@
   ignore_errors: "yes"
   tags: python
 
+- name: bootstrap pip
+  raw: curl -sL https://bootstrap.pypa.io/get-pip.py | python >/dev/null 2>&1
+  changed_when: false
+  ignore_errors: "yes"
+  tags: python
+
 - name: manually gather facts
   setup:
   tags: python

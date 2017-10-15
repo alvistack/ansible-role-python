@@ -20,12 +20,13 @@ _apt: [
   { state: "latest", name: "libssl-dev" },
   { state: "latest", name: "python-dev" },
   { state: "latest", name: "python-minimal" },
-  { state: "latest", name: "python-pip" },
 ]
 _pip: [
   { state: "latest", name: "ndg-httpsclient" },
   { state: "latest", name: "pip" },
   { state: "latest", name: "pyasn1" },
   { state: "latest", name: "pyopenssl" },
+  { state: "latest", name: "setuptools" },
   { state: "latest", name: "urllib3" },
+  { state: "latest", name: "wheel" },
 ]
