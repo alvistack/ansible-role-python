@@ -60,7 +60,7 @@
     loop_var: "loop_var"
   tags: python
 
-- name: ensure pip up-to-date
+- name: ensure pip and setuptools up-to-date
   pip:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
@@ -68,7 +68,6 @@
   with_items:
     - { state: "latest", name: "pip" }
     - { state: "latest", name: "setuptools" }
-    - { state: "latest", name: "wheel" }
   tags: python
 
 - name: ensure python with SNI support
