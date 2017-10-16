@@ -26,12 +26,6 @@
   ignore_errors: "yes"
   tags: python
 
-- name: bootstrap pip
-  raw: curl -sL https://bootstrap.pypa.io/get-pip.py | python >/dev/null 2>&1
-  changed_when: false
-  ignore_errors: "yes"
-  tags: python
-
 - name: manually gather facts
   setup:
   tags: python
@@ -64,6 +58,17 @@
       skip: "yes"
   loop_control:
     loop_var: "loop_var"
+  tags: python
+
+- name: pip install --upgrade
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "--upgrade"
+  with_items:
+    - { state: "latest", name: "pip" }
+    - { state: "latest", name: "setuptools" }
+    - { state: "latest", name: "wheel" }
   tags: python
 
 - name: pip install

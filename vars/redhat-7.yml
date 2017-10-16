@@ -21,14 +21,12 @@ _yum: [
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-devel" },
+  { state: "latest", name: "python-pip" },
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
   { state: "latest", name: "ndg-httpsclient" },
-  { state: "latest", name: "pip" },
   { state: "latest", name: "pyasn1" },
   { state: "latest", name: "pyopenssl" },
-  { state: "latest", name: "setuptools" },
   { state: "latest", name: "urllib3" },
-  { state: "latest", name: "wheel" },
 ]
