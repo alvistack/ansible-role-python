@@ -98,5 +98,5 @@
     virtualenv_command: "{{ item.virtualenv_command | default(None) or omit }}"
     virtualenv_python: "{{ item.virtualenv_python | default(None) or omit }}"
     virtualenv_site_packages: "{{ item.virtualenv_site_packages | default(None) or omit }}"
-  with_items: "pip"
+  with_items: "{{ pip }}"
   tags: python
