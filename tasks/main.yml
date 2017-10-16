@@ -60,7 +60,19 @@
     loop_var: "loop_var"
   tags: python
 
-- name: pip install --upgrade
+- name: ensure python with SNI support
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "--upgrade"
+  with_items:
+    - { state: "latest", name: "ndg-httpsclient" }
+    - { state: "latest", name: "pyasn1" }
+    - { state: "latest", name: "pyopenssl" }
+    - { state: "latest", name: "urllib3" }
+  tags: python
+
+- name: ensure pip up-to-date
   pip:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
@@ -86,5 +98,5 @@
     virtualenv_command: "{{ item.virtualenv_command | default(None) or omit }}"
     virtualenv_python: "{{ item.virtualenv_python | default(None) or omit }}"
     virtualenv_site_packages: "{{ item.virtualenv_site_packages | default(None) or omit }}"
-  with_items: "{{ (_pip + pip ) | unique }}"
+  with_items: "pip"
   tags: python

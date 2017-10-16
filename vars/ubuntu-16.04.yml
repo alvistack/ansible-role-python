@@ -22,5 +22,3 @@ _apt: [
   { state: "latest", name: "python-minimal" },
   { state: "latest", name: "python-pip" },
 ]
-_pip: [
-]
