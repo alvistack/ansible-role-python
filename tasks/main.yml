@@ -60,6 +60,17 @@
     loop_var: "loop_var"
   tags: python
 
+- name: ensure pip up-to-date
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "--upgrade"
+  with_items:
+    - { state: "latest", name: "pip" }
+    - { state: "latest", name: "setuptools" }
+    - { state: "latest", name: "wheel" }
+  tags: python
+
 - name: ensure python with SNI support
   pip:
     name: "{{ item.name }}"
@@ -70,17 +81,6 @@
     - { state: "latest", name: "pyasn1" }
     - { state: "latest", name: "pyopenssl" }
     - { state: "latest", name: "urllib3" }
-  tags: python
-
-- name: ensure pip up-to-date
-  pip:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-    extra_args: "--upgrade"
-  with_items:
-    - { state: "latest", name: "pip" }
-    - { state: "latest", name: "setuptools" }
-    - { state: "latest", name: "wheel" }
   tags: python
 
 - name: pip install
