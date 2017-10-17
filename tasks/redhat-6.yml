@@ -14,36 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: apt-get update
-  apt:
-    update_cache: "yes"
-  changed_when: false
-  tags: python
-
-- name: apt-get install
-  apt:
+- name: yum install
+  yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items: "{{ _apt }}"
+  with_items: "{{ _yum }}"
   tags: python
 
-- name: apt-get -y clean
+- name: yum -y clean all
   shell: |
-    apt-get -y clean
-  changed_when: false
-  tags: python
-
-- name: flush apt lists cache
-  file:
-    dest: "{{ item.dest }}"
-    state: "{{ item.state }}"
-    owner: "{{ item.owner }}"
-    group: "{{ item.group }}"
-    mode: "{{ item.mode }}"
-  with_items:
-    - { state: "absent", dest: "/var/lib/apt/lists", owner: "root", group: "root", mode: "0755" }
-    - { state: "directory", dest: "/var/lib/apt/lists", owner: "root", group: "root", mode: "0755" }
-    - { state: "touch", dest: "/var/lib/apt/lists/lock", owner: "root", group: "root", mode: "0640" }
+    yum -y clean all
   changed_when: false
   tags: python
 
@@ -56,7 +36,7 @@
   with_items:
     - { state: "latest", name: "pip" }
     - { state: "latest", name: "setuptools" }
-    - { state: "latest", name: "wheel" }
+    - { version: "0.29.0", name: "wheel" }
   tags: python
 
 - name: ensure python with SNI support
