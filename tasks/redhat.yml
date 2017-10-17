@@ -14,20 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt: [
-  { state: "latest", name: "build-essential" },
-  { state: "latest", name: "libffi-dev" },
-  { state: "latest", name: "libssl-dev" },
-  { state: "latest", name: "python-dev" },
-  { state: "latest", name: "python-minimal" },
-  { state: "latest", name: "python-pip" },
-]
-_pip: [
-  { state: "latest", name: "pip" },
-  { state: "latest", name: "setuptools" },
-  { state: "latest", name: "wheel" },
-  { state: "latest", name: "ndghttpsclient" },
-  { state: "latest", name: "pyasn1" },
-  { state: "latest", name: "pyopenssl" },
-  { state: "latest", name: "urllib3" },
-]
+- name: yum install
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _yum }}"
+  tags: python
+
+- name: yum -y clean all
+  shell: |
+    yum -y clean all
+  changed_when: false
+  tags: python
