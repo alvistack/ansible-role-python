@@ -29,7 +29,7 @@
       # Passing list of parameters to pip module.
       # See http://docs.ansible.com/ansible/latest/pip_module.html
       pip:
-        - { state: "latest", name: "yamllint" }
+        - { state: "latest", name: "pip" }
 
 - hosts: all
   remote_user: root
@@ -48,5 +48,5 @@
 
     - name: pip
       pip:
-        name: "yamllint"
+        name: "pip"
         state: "latest"
