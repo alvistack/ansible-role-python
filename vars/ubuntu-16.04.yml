@@ -16,11 +16,11 @@
 
 _apt: [
   { state: "latest", name: "build-essential" },
+  { state: "latest", name: "curl" },
   { state: "latest", name: "libffi-dev" },
   { state: "latest", name: "libssl-dev" },
   { state: "latest", name: "python-dev" },
   { state: "latest", name: "python-minimal" },
-  { state: "latest", name: "python-pip" },
 ]
 _pip: [
   { state: "latest", name: "pip" },

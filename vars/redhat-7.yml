@@ -15,13 +15,13 @@
 # limitations under the License.
 
 _yum: [
+  { state: "latest", name: "curl" },
   { state: "latest", name: "epel-release" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-devel" },
-  { state: "latest", name: "python-pip" },
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
