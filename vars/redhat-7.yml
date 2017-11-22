@@ -14,15 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_python_url: "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz"
 _yum: [
+  { state: "latest", name: "@development tools" },
+  { state: "latest", name: "bzip2-devel" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "epel-release" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
   { state: "latest", name: "openssl-devel" },
-  { state: "latest", name: "python" },
-  { state: "latest", name: "python-devel" },
+  { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "redhat-rpm-config" },
+  { state: "latest", name: "sqlite-devel" },
+  { state: "latest", name: "zlib-devel" },
 ]
 _pip: [
   { state: "latest", name: "pip" },

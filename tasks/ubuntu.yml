@@ -18,6 +18,7 @@
   apt_repository:
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
+    validate_certs: "no"
   with_items: "{{ _apt_repository }}"
   tags: python
 
