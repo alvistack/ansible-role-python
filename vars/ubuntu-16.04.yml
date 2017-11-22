@@ -14,13 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_repository: [
+  { state: "present", repo: "ppa:jonathonf/python-2.7" }
+]
 _apt: [
   { state: "latest", name: "build-essential" },
+  { state: "latest", name: "curl" },
   { state: "latest", name: "libffi-dev" },
   { state: "latest", name: "libssl-dev" },
   { state: "latest", name: "python-dev" },
   { state: "latest", name: "python-minimal" },
-  { state: "latest", name: "python-pip" },
 ]
 _pip: [
   { state: "latest", name: "pip" },

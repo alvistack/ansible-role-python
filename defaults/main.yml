@@ -17,3 +17,9 @@
 # Passing list of parameters to pip module.
 # See http://docs.ansible.com/ansible/latest/pip_module.html
 pip: []
+
+# Path prefix for Python related installation.
+python_prefix: "/usr/local"
+
+# URL for download Python archive.
+python_url: "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz"

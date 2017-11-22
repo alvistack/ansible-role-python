@@ -26,3 +26,31 @@
     yum -y clean all
   changed_when: false
   tags: python
+
+- name: install python from source
+  shell: |
+    ARCHIVE="`mktemp --suffix=tar.gz`"
+    TMP_DIR="`mktemp -d`"
+    curl -sL {{ python_url }} > $ARCHIVE
+    tar zxf $ARCHIVE -C $TMP_DIR --strip-components=1
+    cd $TMP_DIR
+    ./configure --prefix={{ python_prefix }}
+    make
+    make altinstall
+    rm -rf $ARCHIVE
+    rm -rf $TMP_DIR
+  args:
+    creates: "{{ python_prefix }}/bin/python2.7"
+  tags: python
+
+- name: symlink files
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: "link"
+  with_items:
+    - { src: "python2.7", dest: "{{ python_prefix }}/bin/python" }
+    - { src: "python2.7", dest: "{{ python_prefix }}/bin/python2" }
+    - { src: "python2.7-config", dest: "{{ python_prefix }}/bin/python-config" }
+    - { src: "python2.7-config", dest: "{{ python_prefix }}/bin/python2-config" }
+  tags: python
