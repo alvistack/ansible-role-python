@@ -1,8 +1,8 @@
 Ansible Role for Python
 =======================
 
-1.1.0
------
+1.1.0 - TBC
+-----------
 
 ### Major Changes
 
@@ -10,8 +10,8 @@ Ansible Role for Python
 -   Install Python 2.7.14 on CentOS from source
 -   Install PIP with <https://bootstrap.pypa.io/get-pip.py>
 
-1.0.0
------
+1.0.0 - 2017-09-25
+------------------
 
 -   Ininitial release for Ansible 2.4
 -   Support both Ubuntu 16.04/14.04 or RHEL/CentOS 7/6
