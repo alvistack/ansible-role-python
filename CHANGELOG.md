@@ -6,8 +6,8 @@ Ansible Role for Python
 
 ### Major Changes
 
--   Install Python 2.7.14 on Ubuntu 16.04/14.04 from PPA
--   Install Python with stock package on CentOS 7/6
+-   Install Python on Ubuntu 16.04/14.04 from PPA
+-   Install Python on CentOS 7/6 from stock package
 -   Install PIP with <https://bootstrap.pypa.io/get-pip.py>
 -   Update test cases
 
