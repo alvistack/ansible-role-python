@@ -62,10 +62,7 @@
 
 - name: python get-pip.py
   shell: |
-    ARCHIVE=`mktemp`
-    curl -sL https://bootstrap.pypa.io/get-pip.py > $ARCHIVE
-    python $ARCHIVE --prefix={{ python_prefix }}
-    rm -rf $ARCHIVE
+    curl -sL https://bootstrap.pypa.io/get-pip.py | python
   register: python_get_pip_result
   changed_when: python_get_pip_result.rc != 0
   tags: python
