@@ -14,14 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: apt-add-repository
-  apt_repository:
-    repo: "{{ item.repo }}"
-    state: "{{ item.state }}"
-    validate_certs: "no"
-  with_items: "{{ _apt_repository }}"
-  tags: python
-
 - name: apt-get update
   apt:
     update_cache: "yes"
