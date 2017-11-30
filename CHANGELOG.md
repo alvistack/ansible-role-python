@@ -1,12 +1,20 @@
 Ansible Role for Python
 =======================
 
+1.2.0 - TBC
+-----------
+
+### Major Changes
+
+-   Keep Ubuntu clean by NOT usign PPA
+
 1.1.0 - 2017-11-23
 ------------------
 
 ### Major Changes
 
--   Install Python 2.7.14 on Ubuntu 16.04/14.0 from PPA
+-   Install Python on Ubuntu 16.04/14.04 from PPA
+-   Install Python on CentOS 7/6 from stock package
 -   Install PIP with <https://bootstrap.pypa.io/get-pip.py>
 -   Update test cases
 
