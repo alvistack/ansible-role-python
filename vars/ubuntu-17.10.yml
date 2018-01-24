@@ -14,23 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-galaxy_info:
-  author: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
-  description: Ansible Role for Python Installation
-  company: PantaRei Design
-  license: Apache License 2.0
-  min_ansible_version: 2.4
-  platforms:
-    - name: Ubuntu
-      versions:
-        - trusty
-        - xenial
-        - artful
-        - bionic
-    - name: EL
-      versions:
-        - 6
-        - 7
-  galaxy_tags:
-    - system
-dependencies: []
+_apt: [
+  { state: "latest", name: "build-essential" },
+  { state: "latest", name: "curl" },
+  { state: "latest", name: "libffi-dev" },
+  { state: "latest", name: "libssl-dev" },
+  { state: "latest", name: "python-dev" },
+  { state: "latest", name: "python-minimal" },
+]
+_pip: [
+  { state: "latest", name: "pip" },
+  { state: "latest", name: "setuptools" },
+  { state: "latest", name: "wheel" },
+  { state: "latest", name: "ndg-httpsclient" },
+  { state: "latest", name: "pyasn1" },
+  { state: "latest", name: "pyopenssl" },
+  { state: "latest", name: "urllib3" },
+]
