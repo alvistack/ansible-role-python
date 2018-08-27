@@ -60,13 +60,6 @@
     loop_var: "loop_var"
   tags: python
 
-- name: python get-pip.py
-  shell: |
-    curl -sL https://bootstrap.pypa.io/2.6/get-pip.py | python
-  register: python_get_pip_result
-  changed_when: python_get_pip_result.rc != 0
-  tags: python
-
 - name: pip install
   pip:
     chdir: "{{ item.chdir | default(None) or omit }}"

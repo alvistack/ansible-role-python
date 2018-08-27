@@ -28,8 +28,8 @@ _pip: [
   { version: "9.0.3", name: "pip" },
   { version: "36.8.0", name: "setuptools" },
   { version: "0.29.0", name: "wheel" },
-  { state: "latest", name: "ndg-httpsclient" },
+  { version: "17.5.0", name: "pyopenssl" },
+  { version: "0.5.0", name: "ndg-httpsclient" },
   { state: "latest", name: "pyasn1" },
-  { state: "latest", name: "pyopenssl" },
   { state: "latest", name: "urllib3" },
 ]
