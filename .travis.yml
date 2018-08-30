@@ -30,8 +30,8 @@ before_install:
   - DOCKER_ID="$(docker run -itd --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock $DOCKER_IMAGE | head -c12)"
 
 install:
-  - pip install -r ansible-requirements.txt
-#  - ansible-galaxy install -r requirements.yml
+  - pip install -r requirements.txt
+#  - ansible-galaxy install -r ansible-role-requirements.yml
 
 script:
   - yamllint -c .yamllint .
