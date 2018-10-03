@@ -24,11 +24,11 @@ before_install:
   - pip --version
 
 install:
-  - mkdir -p /etc/ansible/roles
-  - pip install --upgrade --requirement requirements.txt
   - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/\/ansible-role-/\//g')
-  - ln -s `pwd` /etc/ansible/roles/$ROLE
-#  - ansible-galaxy install -r ansible-role-requirements.yml
+  - sudo mkdir -p /etc/ansible/roles
+  - sudo pip install --upgrade --requirement requirements.txt
+  - sudo ln -s `pwd` /etc/ansible/roles/$ROLE
+#  - sudo ansible-galaxy install -r ansible-role-requirements.yml
 
 before_script:
   - docker pull $DOCKER_IMAGE
