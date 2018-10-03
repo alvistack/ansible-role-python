@@ -24,7 +24,7 @@ before_install:
   - pip --version
 
 install:
-  - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/\/ansible-role-/\//g')
+  - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
   - sudo mkdir -p /etc/ansible/roles
   - sudo pip install --upgrade --requirement requirements.txt
   - sudo ln -s `pwd` /etc/ansible/roles/$ROLE
