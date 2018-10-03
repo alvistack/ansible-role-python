@@ -12,6 +12,7 @@ env:
   global:
     - ANSIBLE_FORCE_COLOR: true
     - ANSIBLE_LOG_PATH: './ansible.log'
+    - ANSIBLE_ROLES_PATH: '~/.ansible/roles'
   matrix:
     - DOCKER_IMAGE: 'ubuntu:16.04'
     - DOCKER_IMAGE: 'ubuntu:18.04'
@@ -24,10 +25,10 @@ before_install:
 
 install:
   - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
-  - sudo mkdir -p /etc/ansible/roles
-  - sudo pip install --upgrade --requirement requirements.txt
-  - sudo ln -s `pwd` /etc/ansible/roles/$ROLE
-#  - sudo ansible-galaxy install -r ansible-role-requirements.yml
+  - mkdir -p $ANSIBLE_ROLES_PATH
+  - pip install --upgrade --requirement requirements.txt
+  - ln -s `pwd` $ANSIBLE_ROLES_PATH/$ROLE
+#  - ansible-galaxy install --roles-path $ANSIBLE_ROLES_PATH --role-file ansible-role-requirements.yml
 
 before_script:
   - docker pull $DOCKER_IMAGE
