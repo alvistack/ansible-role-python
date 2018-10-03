@@ -12,7 +12,6 @@ env:
   global:
     - ANSIBLE_FORCE_COLOR: true
     - ANSIBLE_LOG_PATH: './ansible.log'
-    - ANSIBLE_ROLES_PATH: '../'
   matrix:
     - DOCKER_IMAGE: 'ubuntu:16.04'
     - DOCKER_IMAGE: 'ubuntu:18.04'
