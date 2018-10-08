@@ -24,15 +24,6 @@
 
 - hosts: all
   remote_user: root
-  roles:
-    - role: python
-      # Passing list of parameters to pip module.
-      # See http://docs.ansible.com/ansible/latest/pip_module.html
-      pip:
-        - { state: "latest", name: "pip" }
-
-- hosts: all
-  remote_user: root
   tasks:
     - name: python --version
       shell: |

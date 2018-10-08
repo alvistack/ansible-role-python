@@ -12,6 +12,7 @@ Ansible Role for Python
 -   Install Python on Ubuntu from stock package
 -   Install Python 2.6 on CentOS 6 by pinning with legacy support
 -   Keep APT/YUM cache as-is
+-   Simplify role duty to just handling installation
 
 1.1.0 - 2017-11-23
 ------------------
