@@ -62,18 +62,8 @@
 
 - name: pip install
   pip:
-    chdir: "{{ item.chdir | default(None) or omit }}"
-    editable: "{{ item.editable | default(None) or omit }}"
-    executable: "{{ item.executable | default(None) or omit }}"
-    extra_args: "{{ item.extra_args | default(None) or omit }}"
     name: "{{ item.name | default(None) or omit }}"
-    requirements: "{{ item.requirements | default(None) or omit }}"
     state: "{{ item.state | default(None) or omit }}"
-    umask: "{{ item.umask | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
-    virtualenv: "{{ item.virtualenv | default(None) or omit }}"
-    virtualenv_command: "{{ item.virtualenv_command | default(None) or omit }}"
-    virtualenv_python: "{{ item.virtualenv_python | default(None) or omit }}"
-    virtualenv_site_packages: "{{ item.virtualenv_site_packages | default(None) or omit }}"
   with_items: "{{ _pip }}"
   tags: python

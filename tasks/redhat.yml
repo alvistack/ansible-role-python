@@ -25,7 +25,7 @@
   shell: |
     curl -sL https://bootstrap.pypa.io/get-pip.py | python
   args:
-    creates: "/usr/local/bin/pip"
+    creates: "/usr/bin/pip"
     warn: false
   register: python_get_pip_result
   changed_when: python_get_pip_result.rc != 0
