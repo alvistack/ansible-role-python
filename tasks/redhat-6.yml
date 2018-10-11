@@ -23,7 +23,7 @@
 
 - name: python get-pip.py
   shell: |
-    curl -sL https://bootstrap.pypa.io/2.6/get-pip.py | python
+    curl -skL https://bootstrap.pypa.io/2.6/get-pip.py | python
   args:
     creates: "/usr/bin/pip"
     warn: false
