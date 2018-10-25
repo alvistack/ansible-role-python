@@ -1,16 +1,17 @@
 # Ansible Role for Python
 
-## 1.2.0 - TBC
+## 2.0.0 - 2018-1025
 
 ### Major Changes
 
   - Upgrade Ansible support to 2.6 or higher
-  - Remove Ubuntu 14.04 support
-  - Add Ubuntu 18.04 support
-  - Install Python on Ubuntu from stock package
-  - Install Python 2.6 on CentOS 6 by pinning with legacy support
+  - Support both Ubuntu 16.04/18.04 and RHEL/CentOS 6/7
+  - Remove support for optional package installation
+  - Install Python 2.7 on Ubuntu 16.04/18.04 from stock package
+  - Install Python 2.7 on CentOS 7 from stock package
+  - Install Python 2.6 on CentOS 6 from stock page, plus pinning with legacy support
   - Keep APT/YUM cache as-is
-  - Simplify role duty to just handling installation
+  - Update Travis CI test plan
 
 ## 1.1.0 - 2017-11-23
 
