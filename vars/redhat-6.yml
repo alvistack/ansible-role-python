@@ -22,6 +22,7 @@ _yum: [
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-devel" },
+  { state: "latest", name: "python-urllib3" },
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
