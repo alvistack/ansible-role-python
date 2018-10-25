@@ -14,20 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt: [
-  { state: "latest", name: "build-essential" },
-  { state: "latest", name: "curl" },
-  { state: "latest", name: "libffi-dev" },
-  { state: "latest", name: "libssl-dev" },
-  { state: "latest", name: "python-dev" },
-  { state: "latest", name: "python-minimal" },
-]
-_pip: [
-  { state: "latest", name: "pip" },
-  { state: "latest", name: "setuptools" },
-  { state: "latest", name: "wheel" },
-  { state: "latest", name: "ndg-httpsclient" },
-  { state: "latest", name: "pyasn1" },
-  { state: "latest", name: "pyopenssl" },
-  { state: "latest", name: "urllib3" },
-]
+- name: yum install
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _yum }}"
+  tags: python
+
+- name: python get-pip.py
+  shell: |
+    curl -skL https://bootstrap.pypa.io/2.6/get-pip.py | python
+  args:
+    creates: "/usr/bin/pip"
+    warn: false
+  register: python_get_pip_result
+  changed_when: python_get_pip_result.rc != 0
+  tags: python

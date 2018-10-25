@@ -1,28 +1,29 @@
-Ansible Role for Python
-=======================
+# Ansible Role for Python
 
-1.2.0 - TBC
------------
+## 2.0.0 - 2018-1025
 
 ### Major Changes
 
--   Keep Ubuntu clean by NOT usign PPA
--   Add Ubuntu 17.10 and 18.04 support
+  - Upgrade Ansible support to 2.6 or higher
+  - Support both Ubuntu 16.04/18.04 and RHEL/CentOS 6/7
+  - Remove support for optional package installation
+  - Install Python 2.7 on Ubuntu 16.04/18.04 from stock package
+  - Install Python 2.7 on CentOS 7 from stock package
+  - Install Python 2.6 on CentOS 6 from stock page, plus pinning with legacy support
+  - Keep APT/YUM cache as-is
+  - Update Travis CI test plan
 
-1.1.0 - 2017-11-23
-------------------
+## 1.1.0 - 2017-11-23
 
 ### Major Changes
 
--   Install Python on Ubuntu 16.04/14.04 from PPA
--   Install Python on CentOS 7/6 from stock package
--   Install PIP with <https://bootstrap.pypa.io/get-pip.py>
--   Update test cases
+  - Install Python on Ubuntu 16.04/14.04 from PPA
+  - Install Python on CentOS 7/6 from stock package
+  - Install PIP with <https://bootstrap.pypa.io/get-pip.py>
+  - Update test cases
 
-1.0.0 - 2017-09-25
-------------------
+## 1.0.0 - 2017-09-25
 
--   Ininitial release for Ansible 2.4
--   Support both Ubuntu 16.04/14.04 or RHEL/CentOS 7/6
--   Support running role with `gather_faces: no` to initialize Python on system that not yet pre-installed with Python.
-
+  - Ininitial release for Ansible 2.4
+  - Support both Ubuntu 16.04/14.04 or RHEL/CentOS 7/6
+  - Support running role with `gather_faces: no` to initialize Python on system that not yet pre-installed with Python.

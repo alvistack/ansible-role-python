@@ -20,16 +20,7 @@
   remote_user: root
   gather_facts: no
   roles:
-    - role: ansible-role-python
-
-- hosts: all
-  remote_user: root
-  roles:
-    - role: ansible-role-python
-      # Passing list of parameters to pip module.
-      # See http://docs.ansible.com/ansible/latest/pip_module.html
-      pip:
-        - { state: "latest", name: "pip" }
+    - role: python
 
 - hosts: all
   remote_user: root
