@@ -20,7 +20,7 @@
   remote_user: root
   gather_facts: no
   roles:
-    - role: python
+    - role: alvistack.python
 
 - hosts: all
   remote_user: root
