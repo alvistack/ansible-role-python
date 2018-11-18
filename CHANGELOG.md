@@ -2,8 +2,7 @@
 
 ## 2.1.0 - TBC
 
-## 2.0.1 - 2018-11-18
-
+  - Update chardet and requests to latest version
   - CI with ansible-lint and galaxy-lint-rules
 
 ## 2.0.0 - 2018-10-25
