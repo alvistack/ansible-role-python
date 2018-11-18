@@ -27,6 +27,7 @@ install:
   - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
   - mkdir -p $ANSIBLE_ROLES_PATH
   - pip install --upgrade --requirement requirements.txt
+  - git clone https://github.com/ansible/galaxy-lint-rules.git ~/galaxy-lint-rules
   - ln -s `pwd` $ANSIBLE_ROLES_PATH/$ROLE
 #  - ansible-galaxy install --roles-path $ANSIBLE_ROLES_PATH --role-file ansible-role-requirements.yml
 
@@ -36,6 +37,7 @@ before_script:
 
 script:
   - yamllint -c .yamllint .
+  - ansible-lint -v -r ~/galaxy-lint-rules/rules .
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --syntax-check
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff
