@@ -32,6 +32,8 @@ _pip: [
   { version: "2.18", name: "pycparser" },
   { version: "17.5.0", name: "pyopenssl" },
   { version: "0.5.0", name: "ndg-httpsclient" },
+  { state: "latest", name: "chardet" },
   { state: "latest", name: "pyasn1" },
+  { state: "latest", name: "requests" },
   { state: "latest", name: "urllib3" },
 ]
