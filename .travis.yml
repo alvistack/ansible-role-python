@@ -37,7 +37,7 @@ before_script:
 
 script:
   - yamllint -c .yamllint .
-  - ansible-lint -v -r ~/galaxy-lint-rules/rules .
+  - ansible-lint -r ~/galaxy-lint-rules/rules .
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --syntax-check
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff
   - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff
