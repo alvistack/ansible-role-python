@@ -2,9 +2,11 @@
 
 ## 2.1.0 - TBC
 
-## 2.0.1 - 2018-11-18
+### Major Changes
 
+  - Update chardet and requests to latest version
   - CI with ansible-lint and galaxy-lint-rules
+  - Use shell only when shell functionality is required
 
 ## 2.0.0 - 2018-10-25
 

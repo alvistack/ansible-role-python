@@ -26,25 +26,21 @@
   remote_user: root
   tasks:
     - name: python --version
-      shell: |
-        python --version
+      command: python --version
       register: python_version_result
       changed_when: python_version_result.rc != 0
 
     - name: pip --version
-      shell: |
-        pip --version
+      command: pip --version
       register: pip_version_result
       changed_when: pip_version_result.rc != 0
 
     - name: easy_install --version
-      shell: |
-        easy_install --version
+      command: easy_install --version
       register: easy_install_version_result
       changed_when: easy_install_version_result.rc != 0
 
     - name: wheel version
-      shell: |
-        wheel version
+      command: wheel version
       register: wheel_version_result
       changed_when: wheel_version_result.rc != 0
