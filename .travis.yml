@@ -26,7 +26,7 @@ install:
 #  - ansible-galaxy install --roles-path ~/.ansible/roles --role-file ansible-role-requirements.yml
 
 script:
-  - ./tests/run.sh
+  - ./scripts/run-tests.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
