@@ -16,6 +16,7 @@
 
 _apt: [
   { state: "absent", name: "python-pip" },
+  { state: "absent", name: "python-openssl" },
   { state: "latest", name: "build-essential" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "libffi-dev" },
