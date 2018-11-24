@@ -15,6 +15,7 @@
 # limitations under the License.
 
 _apt: [
+  { state: "absent", name: "python-pip" },
   { state: "latest", name: "build-essential" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "libffi-dev" },

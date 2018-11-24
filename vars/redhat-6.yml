@@ -15,8 +15,9 @@
 # limitations under the License.
 
 _yum: [
-  { state: "latest", name: "curl" },
   { state: "latest", name: "epel-release" },
+  { state: "absent", name: "python-pip" },
+  { state: "latest", name: "curl" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
   { state: "latest", name: "openssl-devel" },
