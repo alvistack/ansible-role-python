@@ -18,12 +18,20 @@
   raw: command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get -y install python-minimal
   changed_when: false
   ignore_errors: "yes"
+  register: result
+  until: result.rc == 0
+  retries: 3
+  delay: 3
   tags: python
 
 - name: bootstrap python with yum
   raw: command -v yum >/dev/null 2>&1 && yum -y install epel-release && yum -y install python
   changed_when: false
   ignore_errors: "yes"
+  register: result
+  until: result.rc == 0
+  retries: 3
+  delay: 3
   tags: python
 
 - name: manually gather facts

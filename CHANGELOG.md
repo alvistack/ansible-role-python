@@ -7,6 +7,9 @@
   - Update chardet and requests to latest version
   - CI with ansible-lint and galaxy-lint-rules
   - Use shell only when shell functionality is required
+  - Ensure python-pip uninstalled from system repository
+  - Ensure python-openssl uninstalled from system repository
+  - Replace tests from Docker to LXD
 
 ## 2.0.0 - 2018-10-25
 
