@@ -23,8 +23,8 @@ export ANSIBLE_LOG_PATH="./ansible.log"
 export ANSIBLE_ROLES_PATH="$HOME/.ansible/roles"
 
 LXC_IMAGE=${LXC_IMAGE:-"ubuntu:16.04"}
-LXC_ID="$(cat /dev/urandom | tr -dc a-z | head -c1)$(cat /dev/urandom | tr -dc a-z0-9 | head -c11)"
-lxc launch $LXC_IMAGE $LXC_ID
+LXC_ID=${LXC_ID:-"$(cat /dev/urandom | tr -dc a-z | head -c1)$(cat /dev/urandom | tr -dc a-z0-9 | head -c11)"}
+lxc start $LXC_ID || lxc launch $LXC_IMAGE $LXC_ID
 
 yamllint -c .yamllint .
 ansible-lint -r $HOME/.ansible/galaxy-lint-rules/rules .
