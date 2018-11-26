@@ -17,7 +17,6 @@
 _yum: [
   { state: "latest", name: "epel-release" },
   { state: "absent", name: "python-pip" },
-  { state: "absent", name: "pyOpenSSL" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
