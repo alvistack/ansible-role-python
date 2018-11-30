@@ -18,7 +18,7 @@ before_install:
   - sudo -H pip install --upgrade --requirement requirements.txt
 
 install:
-  - ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
+  - export ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
   - mkdir -p $HOME/.ansible/roles
   - git clone https://github.com/ansible/galaxy-lint-rules.git $HOME/.ansible/galaxy-lint-rules
   - ln -s $TRAVIS_BUILD_DIR $HOME/.ansible/roles/$ROLE
