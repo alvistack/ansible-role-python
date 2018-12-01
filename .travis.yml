@@ -13,7 +13,7 @@ env:
 
 before_install:
   - sudo apt-get -y purge lxc-* lxd-* && sudo apt-get -y autoremove
-  - sudo snap install lxd && sudo lxd init --auto
+  - sudo snap install lxd && sudo lxd init --preseed < .travis.lxd.yml
   - sudo apt-get -y purge python-openssl && sudo apt-get -y autoremove
   - sudo -H pip install --upgrade --requirement requirements.txt
 
