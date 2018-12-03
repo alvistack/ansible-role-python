@@ -10,7 +10,6 @@
   - Ensure python-pip uninstalled from system repository
   - Replace tests from Docker to LXD
   - Don't install epel-release, conflict with RHEL
-  - Reduce kernel logging level during CI
 
 ## 2.0.0 - 2018-10-25
 

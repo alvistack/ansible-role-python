@@ -16,7 +16,6 @@ before_install:
   - sudo snap install lxd && sudo lxd init --preseed < .travis.lxd.yml
   - sudo apt-get -y purge python-openssl && sudo apt-get -y autoremove
   - sudo -H pip install --upgrade --requirement requirements.txt
-  - sudo bash -c "echo '4 1 7 4' > /proc/sys/kernel/printk"
 
 install:
   - export ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
