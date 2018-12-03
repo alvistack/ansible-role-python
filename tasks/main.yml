@@ -25,7 +25,7 @@
   tags: python
 
 - name: bootstrap python with yum
-  raw: command -v yum >/dev/null 2>&1 && yum -y install epel-release && yum -y install python
+  raw: command -v yum >/dev/null 2>&1 && yum makecache && yum -y install python
   changed_when: false
   ignore_errors: "yes"
   register: result
