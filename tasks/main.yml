@@ -16,22 +16,18 @@
 
 - name: bootstrap python with apt-get
   raw: command -v apt-get >/dev/null 2>&1 && apt-get update && apt-get -y install python-minimal
+  register: result
+  until: result is succeeded
   changed_when: false
   ignore_errors: "yes"
-  register: result
-  until: result.rc == 0
-  retries: 3
-  delay: 3
   tags: python
 
 - name: bootstrap python with yum
   raw: command -v yum >/dev/null 2>&1 && yum makecache && yum -y install python
+  register: result
+  until: result is succeeded
   changed_when: false
   ignore_errors: "yes"
-  register: result
-  until: result.rc == 0
-  retries: 3
-  delay: 3
   tags: python
 
 - name: manually gather facts
@@ -74,4 +70,6 @@
     state: "{{ item.state | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
   with_items: "{{ _pip }}"
+  register: result
+  until: result is succeeded
   tags: python
