@@ -27,7 +27,7 @@ LXC_ID=${LXC_ID:-"$(cat /dev/urandom | tr -dc a-z | head -c1)$(cat /dev/urandom 
 lxc restart $LXC_ID || lxc launch $LXC_IMAGE $LXC_ID
 
 yamllint -c .yamllint .
-ansible-lint -r $HOME/.ansible/galaxy-lint-rules/rules .
+ansible-lint .
 ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --syntax-check
 ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --diff
 ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --diff
