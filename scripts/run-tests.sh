@@ -30,5 +30,5 @@ yamllint -c .yamllint .
 ansible-lint -r $HOME/.ansible/galaxy-lint-rules/rules .
 ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --syntax-check
 ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --diff
-ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --check --diff
+ansible-playbook -i $LXC_ID, -c lxd tests/test.yml --diff
 tail -n 1 $ANSIBLE_LOG_PATH | grep -Eq 'changed=0 +unreachable=0 +failed=0'
