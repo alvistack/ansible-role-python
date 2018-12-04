@@ -20,7 +20,6 @@ before_install:
 install:
   - export ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
   - mkdir -p $HOME/.ansible/roles
-  - git clone https://github.com/ansible/galaxy-lint-rules.git $HOME/.ansible/galaxy-lint-rules
   - ln -s $TRAVIS_BUILD_DIR $HOME/.ansible/roles/$ROLE
 #  - ansible-galaxy install --roles-path $HOME/.ansible/roles --role-file ansible-role-requirements.yml
 
