@@ -27,6 +27,7 @@ _pip: [
   { state: "latest", name: "pip" },
   { state: "latest", name: "setuptools" },
   { state: "latest", name: "wheel" },
+  { state: "latest", name: "idna" },
   { state: "latest", name: "pycparser" },
   { state: "latest", name: "pyopenssl" },
   { state: "latest", name: "ndg-httpsclient" },
