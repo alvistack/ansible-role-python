@@ -1,14 +1,21 @@
 # Ansible Role for Python
 
-## 2.1.0 - TBC
+## 2.2.0 - TBC
 
 ### Major Changes
 
-  - Update chardet and requests to latest version
-  - CI with ansible-lint and galaxy-lint-rules
+## 2.1.0 - 2018-12-06
+
+### Major Changes
+
+  - CI with yamllint, ansible-lint and ansible-playbook --syntax-check
+  - CI with LXD, improve systemd support
   - Use shell only when shell functionality is required
+  - Update chardet and requests to latest version
   - Ensure python-pip uninstalled from system repository
-  - Replace tests from Docker to LXD
+
+### CentOS
+
   - Don't install epel-release, conflict with RHEL
 
 ## 2.0.0 - 2018-10-25
