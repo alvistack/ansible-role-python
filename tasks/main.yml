@@ -19,7 +19,7 @@
   register: result
   until: result is succeeded
   changed_when: false
-  ignore_errors: "yes"
+  ignore_errors: yes
   tags: python
 
 - name: bootstrap python with yum
@@ -27,7 +27,7 @@
   register: result
   until: result is succeeded
   changed_when: false
-  ignore_errors: "yes"
+  ignore_errors: yes
   tags: python
 
 - name: manually gather facts
