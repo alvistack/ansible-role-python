@@ -19,6 +19,8 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt }}"
+  register: result
+  until: result is succeeded
   tags: python
 
 - name: python get-pip.py
@@ -27,6 +29,7 @@
   args:
     creates: "/usr/bin/pip"
     warn: false
-  register: python_get_pip_result
-  changed_when: python_get_pip_result.rc != 0
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
   tags: python
