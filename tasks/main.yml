@@ -23,7 +23,7 @@
   tags: python
 
 - name: bootstrap python with yum
-  raw: command -v yum >/dev/null 2>&1 && yum makecache && yum -y install python
+  raw: command -v yum >/dev/null 2>&1 && yum makecache fast && yum -y install python
   register: result
   until: result is succeeded
   changed_when: false
