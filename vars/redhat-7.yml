@@ -26,12 +26,12 @@ _yum: [
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
-  { state: "present", name: "requests" },
-  { state: "present", name: "pyopenssl" },
   { state: "latest", name: "pip" },
   { state: "latest", name: "setuptools" },
   { state: "latest", name: "wheel" },
+  { state: "present", name: "requests" },
   { state: "latest", name: "pycparser" },
+  { state: "present", name: "pyopenssl" },
   { state: "latest", name: "ndg-httpsclient" },
   { state: "latest", name: "chardet" },
   { state: "latest", name: "pyasn1" },
