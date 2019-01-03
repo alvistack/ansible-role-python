@@ -26,12 +26,12 @@ _yum: [
   { state: "latest", name: "redhat-rpm-config" },
 ]
 _pip: [
+  { version: "2.19.1", name: "requests" },
+  { version: "17.5.0", name: "pyopenssl" },
   { version: "9.0.3", name: "pip" },
   { version: "36.8.0", name: "setuptools" },
   { version: "0.29.0", name: "wheel" },
-  { version: "2.19.1", name: "requests" },
   { version: "2.18", name: "pycparser" },
-  { version: "17.5.0", name: "pyopenssl" },
   { version: "0.5.0", name: "ndg-httpsclient" },
   { state: "latest", name: "chardet" },
   { state: "latest", name: "pyasn1" },
