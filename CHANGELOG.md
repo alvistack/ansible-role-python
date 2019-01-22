@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Minor bugfix
+
 ## 2.1.0 - 2018-12-06
 
 ### Major Changes
