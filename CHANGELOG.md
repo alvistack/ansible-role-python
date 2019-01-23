@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-  - Minor bugfix
+  - Simplify package dependency
 
 ## 2.1.0 - 2018-12-06
 
