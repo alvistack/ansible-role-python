@@ -19,6 +19,8 @@
     command -v apt-get >/dev/null 2>&1 || exit 1
     apt-get update
     apt-get -y install python-minimal
+  register: result
+  until: result is succeeded
   changed_when: false
   ignore_errors: yes
   tags: python
@@ -28,6 +30,8 @@
     command -v yum >/dev/null 2>&1 || exit 1
     yum makecache fast
     yum -y install python
+  register: result
+  until: result is succeeded
   changed_when: false
   ignore_errors: yes
   tags: python
