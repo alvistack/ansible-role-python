@@ -6,10 +6,10 @@ language: python
 
 env:
   matrix:
-    - LXC_IMAGE: 'images:ubuntu/16.04'
-    - LXC_IMAGE: 'images:ubuntu/18.04'
-    - LXC_IMAGE: 'images:centos/6'
-    - LXC_IMAGE: 'images:centos/7'
+    - LXC_IMAGE: 'ubuntu/xenial/amd64'
+    - LXC_IMAGE: 'ubuntu/bionic/amd64'
+    - LXC_IMAGE: 'centos/6/amd64'
+    - LXC_IMAGE: 'centos/7/amd64'
 
 before_install:
   - sudo apt-get -y purge lxc-* lxd-* && sudo apt-get -y autoremove
@@ -21,7 +21,6 @@ install:
   - export ROLE=$(echo $TRAVIS_REPO_SLUG | sed 's/^.*\/ansible-role-/\//g')
   - mkdir -p $HOME/.ansible/roles
   - ln -s $TRAVIS_BUILD_DIR $HOME/.ansible/roles/$ROLE
-#  - ansible-galaxy install --roles-path $HOME/.ansible/roles --role-file ansible-role-requirements.yml
 
 script:
   - sudo ./scripts/run-tests.sh

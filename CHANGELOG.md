@@ -1,6 +1,12 @@
 # Ansible Role for Python
 
-## 2.2.0 - TBC
+## 2.3.0 - TBC
+
+### Major Changes
+
+  - Porting test to Molecule based
+
+## 2.2.0 - 2019-01-23
 
 ### Major Changes
 
