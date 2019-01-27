@@ -14,32 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: bootstrap python with apt-get
-  raw: |
-    command -v apt-get >/dev/null 2>&1 || exit 1
-    apt-get update
-    apt-get -y install python-minimal
-  register: result
-  until: result is succeeded
-  changed_when: false
-  ignore_errors: yes
-  tags: python
-
-- name: bootstrap python with yum
-  raw: |
-    command -v yum >/dev/null 2>&1 || exit 1
-    yum makecache fast
-    yum -y install python
-  register: result
-  until: result is succeeded
-  changed_when: false
-  ignore_errors: yes
-  tags: python
-
-- name: manually gather facts
-  setup:
-  tags: python
-
 - name: include release specific variables
   include_vars: "{{ loop_var }}"
   with_first_found:

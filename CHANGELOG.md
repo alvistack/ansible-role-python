@@ -5,6 +5,7 @@
 ### Major Changes
 
   - Porting test to Molecule based
+  - Remove initial Python bootstrap with raw since Molecule already handle it
 
 ## 2.2.0 - 2019-01-23
 
