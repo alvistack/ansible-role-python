@@ -2,6 +2,7 @@
 dependency:
   name: galaxy
   options:
+    ignore-errors: true
     role-file: ansible-role-requirements.yml
     roles-path: ${ANSIBLE_ROLES_PATH}
 driver:
