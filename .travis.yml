@@ -6,10 +6,11 @@ language: python
 
 env:
   matrix:
-    - MOLECULE_SCENARIO_NAME: 'ubuntu-16.04'
-    - MOLECULE_SCENARIO_NAME: 'ubuntu-18.04'
     - MOLECULE_SCENARIO_NAME: 'centos-6'
     - MOLECULE_SCENARIO_NAME: 'centos-7'
+    - MOLECULE_SCENARIO_NAME: 'default'
+    - MOLECULE_SCENARIO_NAME: 'ubuntu-16.04'
+    - MOLECULE_SCENARIO_NAME: 'ubuntu-18.04'
 
 before_install:
   - sudo apt-get -y purge lxc-* lxd-* && sudo apt-get -y autoremove
