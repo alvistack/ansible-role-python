@@ -15,7 +15,7 @@
 # limitations under the License.
 
 scenario:
-  name: default
+  name: centos-6
 driver:
   name: lxd
 platforms:
@@ -23,7 +23,7 @@ platforms:
     url: unix:/var/snap/lxd/common/lxd/unix.socket
     source:
       server: https://images.linuxcontainers.org
-      alias: ${LXC_IMAGE}
+      alias: centos/6/amd64
 lint:
   name: yamllint
 dependency:
@@ -37,7 +37,7 @@ provisioner:
   env:
     ANSIBLE_ROLES_PATH: ${ANSIBLE_ROLES_PATH}
   playbooks:
-    converge: playbook.yml
+    converge: ../default/playbook.yml
   lint:
     name: ansible-lint
 verifier:
