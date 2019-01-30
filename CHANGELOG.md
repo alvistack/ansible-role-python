@@ -1,6 +1,10 @@
 # Ansible Role for Python
 
-## 2.3.0 - TBC
+## 2.4.0 - TBC
+
+### Major Changes
+
+## 2.3.0 - 2019-01-30
 
 ### Major Changes
 
