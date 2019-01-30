@@ -1,6 +1,17 @@
 # Ansible Role for Python
 
-## 2.2.0 - TBC
+## 2.4.0 - TBC
+
+### Major Changes
+
+## 2.3.0 - 2019-01-30
+
+### Major Changes
+
+  - Porting test to Molecule based
+  - Remove initial Python bootstrap with raw since Molecule already handle it
+
+## 2.2.0 - 2019-01-23
 
 ### Major Changes
 

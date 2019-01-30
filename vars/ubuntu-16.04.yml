@@ -21,8 +21,8 @@ _apt: [
   { state: "latest", name: "libffi-dev" },
   { state: "latest", name: "libssl-dev" },
   { state: "latest", name: "make" },
+  { state: "latest", name: "python" },
   { state: "latest", name: "python-dev" },
-  { state: "latest", name: "python-minimal" },
 ]
 _pip: [
   { state: "latest", name: "pip" },
