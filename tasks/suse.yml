@@ -14,26 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-galaxy_info:
-  role_name: python
-  author: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
-  description: Ansible Role for Python Installation
-  company: PantaRei Design
-  license: Apache License 2.0
-  min_ansible_version: 2.6
-  platforms:
-    - name: Ubuntu
-      versions:
-        - xenial
-        - bionic
-    - name: EL
-      versions:
-        - 6
-        - 7
-    - name: opensuse
-      versions:
-        - 42
-        - 15
-  galaxy_tags:
-    - system
-dependencies: []
+- name: zypper install
+  zypper:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _zypper }}"
+  register: result
+  until: result is succeeded
+  tags: python
+
+- name: python get-pip.py
+  shell: |
+    curl -skL https://bootstrap.pypa.io/get-pip.py | python
+  args:
+    creates: "/usr/bin/pip"
+    warn: false
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
+  tags: python
