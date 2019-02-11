@@ -28,7 +28,7 @@
     set -o pipefail
     curl -skL https://bootstrap.pypa.io/2.6/get-pip.py | python
   args:
-    executable: /bin/bash
+    executable: "/bin/bash"
     creates: "/usr/bin/pip"
   register: result
   until: result is succeeded
