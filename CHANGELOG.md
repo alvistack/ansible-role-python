@@ -1,10 +1,15 @@
 # Ansible Role for Python
 
-## 2.6.0 - TBC
+## 2.7.0 - TBC
+
+### Major Changes
+
+## 2.6.0 - 2019-05-04
 
 ### Major Changes
 
   - Avoid conflict by keeping urllib3 with `present`
+  - Refine Travis CI Molecue test cases
 
 ## 2.5.0 - 2019-04-17
 
