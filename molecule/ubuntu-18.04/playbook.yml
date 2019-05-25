@@ -16,11 +16,13 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: python
 
 - hosts: all
   remote_user: root
+  become: true
   tasks:
     - name: python --version
       command: python --version
