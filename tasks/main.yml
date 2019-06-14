@@ -54,7 +54,6 @@
     state: "{{ item.state | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
     extra_args: "{{ item.extra_args | default(None) or omit }}"
-    executable: "pip3"
   with_items: "{{ _pip }}"
   register: result
   until: result is succeeded

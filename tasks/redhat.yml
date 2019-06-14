@@ -14,17 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum-config-manager --add-repo
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _yum_repository }}"
-  register: result
-  until: result is succeeded
-  changed_when: false
-  ignore_errors: true
-  tags: python
-
 - name: yum install
   yum:
     name: "{{ item.name }}"
@@ -34,25 +23,13 @@
   until: result is succeeded
   tags: python
 
-- name: python2 get-pip.py
+- name: python get-pip.py
   shell: |
     set -o pipefail
-    curl -skL https://bootstrap.pypa.io/get-pip.py | python2
+    curl -skL https://bootstrap.pypa.io/get-pip.py | python
   args:
     executable: "/bin/bash"
-    creates: "/usr/bin/pip2"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
-  tags: python
-
-- name: python3 get-pip.py
-  shell: |
-    set -o pipefail
-    curl -skL https://bootstrap.pypa.io/get-pip.py | python3
-  args:
-    executable: "/bin/bash"
-    creates: "/usr/bin/pip3"
+    creates: "/usr/bin/pip"
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
