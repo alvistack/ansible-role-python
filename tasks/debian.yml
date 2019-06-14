@@ -23,13 +23,25 @@
   until: result is succeeded
   tags: python
 
-- name: python get-pip.py
+- name: python2 get-pip.py
   shell: |
     set -o pipefail
-    curl -skL https://bootstrap.pypa.io/get-pip.py | python
+    curl -skL https://bootstrap.pypa.io/get-pip.py | python2
   args:
     executable: "/bin/bash"
-    creates: "/usr/bin/pip"
+    creates: "/usr/bin/pip2"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
+  tags: python
+
+- name: python3 get-pip.py
+  shell: |
+    set -o pipefail
+    curl -skL https://bootstrap.pypa.io/get-pip.py | python3
+  args:
+    executable: "/bin/bash"
+    creates: "/usr/bin/pip3"
   register: result
   until: result is succeeded
   changed_when: result is not succeeded

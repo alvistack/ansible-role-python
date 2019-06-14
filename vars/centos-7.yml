@@ -14,8 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_yum_repository: [
+  { state: "latest", name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" },
+]
 _yum: [
   { state: "absent", name: "python-pip" },
+  { state: "absent", name: "python36-pip" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-devel" },
@@ -23,6 +27,8 @@ _yum: [
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-devel" },
+  { state: "latest", name: "python36" },
+  { state: "latest", name: "python36-devel" },
 ]
 _pip: [
   { state: "latest", name: "pip" },

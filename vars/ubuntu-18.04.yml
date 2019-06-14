@@ -16,6 +16,7 @@
 
 _apt: [
   { state: "absent", name: "python-pip" },
+  { state: "absent", name: "python3-pip" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "gcc" },
   { state: "latest", name: "libffi-dev" },
@@ -23,6 +24,8 @@ _apt: [
   { state: "latest", name: "make" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-dev" },
+  { state: "latest", name: "python3" },
+  { state: "latest", name: "python3-dev" },
 ]
 _pip: [
   { state: "latest", name: "pip" },
