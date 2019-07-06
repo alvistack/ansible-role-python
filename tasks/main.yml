@@ -55,7 +55,7 @@
     version: "{{ item.version | default(None) or omit }}"
     extra_args: "{{ item.extra_args | default(None) or omit }}"
     executable: "pip2"
-  with_items: "{{ _pip }}"
+  loop: "{{ _pip }}"
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
