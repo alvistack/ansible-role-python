@@ -24,13 +24,13 @@
   remote_user: root
   become: true
   tasks:
-    - name: python --version
-      command: python --version
+    - name: python3 --version
+      command: python3 --version
       register: result
       changed_when: result is not succeeded
 
-    - name: pip --version
-      command: pip --version
+    - name: pip3 --version
+      command: pip3 --version
       register: result
       changed_when: result is not succeeded
 
