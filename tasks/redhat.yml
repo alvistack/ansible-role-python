@@ -24,11 +24,11 @@
   tags: python
 
 - name: python get-pip.py
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
   shell: |
     set -o pipefail
     curl -skL https://bootstrap.pypa.io/get-pip.py | python3
-  vars:
-    ansible_python_interpreter: "/usr/bin/python3"
   args:
     executable: "/bin/bash"
     creates: "/usr/bin/pip3"
