@@ -14,15 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_yum_config_manager:
+  - { state: "enable", name: "extras" }
+  - { state: "enable", name: "updates" }
+  - { state: "enable", name: "cr" }
+
 _yum:
-  - { state: "absent", name: "python-pip" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "openssl-devel" }
-  - { state: "latest", name: "python" }
-  - { state: "latest", name: "python-devel" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-devel" }
 
 _pip:
   - { state: "latest", name: "pip" }
@@ -36,4 +40,4 @@ _pip:
   - { state: "latest", name: "pyasn1" }
   - { state: "latest", name: "lxml" }
   - { state: "latest", name: "pyyaml" }
-  - { state: "present", name: "urllib3", extra_args: "--ignore-installed" }
+  - { state: "latest", name: "urllib3" }

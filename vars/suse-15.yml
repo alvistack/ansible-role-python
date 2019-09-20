@@ -15,14 +15,13 @@
 # limitations under the License.
 
 _zypper:
-  - { state: "absent", name: "python-pip" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "libopenssl-devel" }
   - { state: "latest", name: "make" }
-  - { state: "latest", name: "python" }
-  - { state: "latest", name: "python-devel" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-devel" }
 
 _pip:
   - { state: "latest", name: "pip" }
