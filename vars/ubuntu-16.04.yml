@@ -36,3 +36,4 @@ _pip:
   - { state: "latest", name: "lxml" }
   - { state: "latest", name: "pyyaml" }
   - { state: "latest", name: "urllib3" }
+  - { state: "latest", name: "selinux" }
