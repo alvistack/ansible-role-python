@@ -29,7 +29,7 @@
       register: result
       changed_when: result is not succeeded
 
-    - name: /usr/bin/pip3 --version
-      command: /usr/bin/pip3 --version
+    - name: /usr/local/bin/pip3 --version
+      command: /usr/local/bin/pip3 --version
       register: result
       changed_when: result is not succeeded

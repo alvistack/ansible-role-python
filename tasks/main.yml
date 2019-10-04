@@ -56,7 +56,7 @@
     state: "{{ item.state | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
     extra_args: "{{ item.extra_args | default(None) or omit }}"
-    executable: "/usr/bin/pip3"
+    executable: "/usr/local/bin/pip3"
   loop: "{{ _pip }}"
   register: result
   until: result is succeeded
