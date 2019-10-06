@@ -24,12 +24,16 @@
   remote_user: root
   become: true
   tasks:
-    - name: /usr/bin/python3 --version
-      command: /usr/bin/python3 --version
+    - name: python3 --version
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      command: python3 --version
       register: result
       changed_when: result is not succeeded
 
-    - name: /usr/local/bin/pip3 --version
-      command: /usr/local/bin/pip3 --version
+    - name: pip3 --version
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      command: pip3 --version
       register: result
       changed_when: result is not succeeded

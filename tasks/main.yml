@@ -49,14 +49,16 @@
   tags: python
 
 - name: pip install
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   vars:
-    ansible_python_interpreter: "/usr/bin/python3"
+    ansible_python_interpreter: "python3"
   pip:
     name: "{{ item.name }}"
     state: "{{ item.state | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
     extra_args: "{{ item.extra_args | default(None) or omit }}"
-    executable: "/usr/local/bin/pip3"
+    executable: "pip3"
   loop: "{{ _pip }}"
   register: result
   until: result is succeeded
