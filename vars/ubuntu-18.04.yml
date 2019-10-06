@@ -36,3 +36,4 @@ _pip:
   - { state: "latest", name: "lxml" }
   - { state: "present", name: "pyyaml", extra_args: "--ignore-installed" }
   - { state: "latest", name: "urllib3" }
+  - { state: "latest", name: "selinux" }
