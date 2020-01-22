@@ -48,6 +48,17 @@
   ignore_errors: true
   tags: python
 
+- name: prepare directories
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directory') }}"
+  loop:
+    - { dest: "/etc/bash_completion.d" }
+  tags: python
+
 - name: pip install
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -63,4 +74,28 @@
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
+  tags: python
+
+- name: install argcomplete bash completion
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  shell: |
+    set -o pipefail
+    activate-global-python-argcomplete
+  args:
+    executable: "/bin/bash"
+    creates: "/etc/bash_completion.d/python-argcomplete"
+  register: result
+  changed_when: result is not succeeded
+  tags: python
+
+- name: prepare files
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('file') }}"
+  loop:
+    - { dest: "/etc/bash_completion.d/python-argcomplete" }
   tags: python
