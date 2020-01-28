@@ -76,7 +76,7 @@
   changed_when: result is not succeeded
   tags: python
 
-- name: install argcomplete bash completion
+- name: install bash completion
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
