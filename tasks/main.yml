@@ -70,7 +70,7 @@
     version: "{{ item.version | default(None) or omit }}"
     extra_args: "--ignore-installed"
     executable: "pip3"
-  loop: "{{ _pip }}"
+  loop: "{{ pip }}"
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
