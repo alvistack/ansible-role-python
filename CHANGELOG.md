@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Support Ubuntu 20.04
   - Support override `pip` packages
 
 ## 4.1.0 - 2020-01-16
