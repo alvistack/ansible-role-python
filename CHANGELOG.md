@@ -5,7 +5,7 @@
 ### Major Changes
 
   - Add `default` scenario with Docker on Ubuntu 18.04
-  - Add `default` scenario with Docker on Ubuntu 18.04
+  - Always mount `/run/docker.sock` from host
   - Support Ubuntu 20.04
   - Support override `pip` packages
 
