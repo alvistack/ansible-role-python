@@ -81,7 +81,7 @@
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -o pipefail
-    activate-global-python-argcomplete
+    python3 /usr/local/bin/activate-global-python-argcomplete
   args:
     executable: "/bin/bash"
     creates: "/etc/bash_completion.d/python-argcomplete"
