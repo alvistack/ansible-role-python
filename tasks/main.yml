@@ -79,11 +79,8 @@
 - name: install bash completion
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  shell: |
-    set -o pipefail
-    python3 /usr/local/bin/activate-global-python-argcomplete
+  command: python3 /usr/local/bin/activate-global-python-argcomplete
   args:
-    executable: "/bin/bash"
     creates: "/etc/bash_completion.d/python-argcomplete"
   register: result
   changed_when: result is not succeeded
