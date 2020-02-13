@@ -4,18 +4,23 @@ dist: bionic
 
 language: minimal
 
+cache:
+  directories:
+    - $HOME/.cache
+    - $HOME/.vagrant.d
+    - /etc/libvirt
+    - /var/lib/libvirt
+
 env:
+  global:
+    - ANSIBLE_ROLES_PATH="$HOME/.ansible/roles"
+    - MOLECULE_INSTANCE_NAME="$USER-$TRAVIS_BUILD_ID"
   matrix:
     - MOLECULE_SCENARIO_NAME="centos-7"
     - MOLECULE_SCENARIO_NAME="suse-15"
     - MOLECULE_SCENARIO_NAME="ubuntu-16.04"
     - MOLECULE_SCENARIO_NAME="ubuntu-18.04"
     - MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-
-matrix:
-  allow_failures:
-    - env: MOLECULE_SCENARIO_NAME="centos-7"
-    - env: MOLECULE_SCENARIO_NAME="suse-15"
 
 before_install:
   - |
@@ -41,15 +46,25 @@ install:
     mkdir -p $HOME/.ansible/roles
     ln -s $TRAVIS_BUILD_DIR $HOME/.ansible/roles/$ROLE
 
-script:
-  - |
-    source ./scripts/run-tests.sh \
-      && sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME \
-      && sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME \
-      && sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME \
-      && sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME \
-      && travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME \
-      && sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
+matrix:
+  include:
+    - stage: molecule dependency
+      script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule lint
+      script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule syntax
+      script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule create
+      script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule converge
+      script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule idempotence
+      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
+    - stage: molecule verify
+      script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
+  allow_failures:
+    - env: MOLECULE_SCENARIO_NAME="centos-7"
+    - env: MOLECULE_SCENARIO_NAME="suse-15"
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
