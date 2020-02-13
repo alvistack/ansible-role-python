@@ -50,114 +50,95 @@ install:
 
 jobs:
   include:
-    - stage: molecule dependency
+    - &dependency
+      stage: dependency
       script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *dependency
       env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule lint
-      script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule syntax
-      script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule create
-      script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule converge
-      script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule idempotence
-      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
-    - stage: molecule verify
-      script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *dependency
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *dependency
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *dependency
+      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
 
-    - stage: molecule dependency
-      script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule lint
+    - &lint
+      stage: lint
       script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *lint
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *lint
       env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule syntax
-      script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule create
-      script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule converge
-      script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule idempotence
-      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
-    - stage: molecule verify
-      script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *lint
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *lint
+      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
 
-    - stage: molecule dependency
-      script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule lint
-      script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule syntax
+    - &syntax
+      stage: syntax
       script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *syntax
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *syntax
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *syntax
       env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule create
-      script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule converge
-      script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule idempotence
-      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
-    - stage: molecule verify
-      script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *syntax
+      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
 
-    - stage: molecule dependency
-      script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule lint
-      script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule syntax
-      script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule create
+    - &create
+      stage: create
       script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
       env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule converge
-      script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule idempotence
-      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
-    - stage: molecule verify
-      script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *create
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *create
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *create
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *create
+      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
 
-    - stage: molecule dependency
-      script: sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule lint
-      script: sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule syntax
-      script: sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule create
-      script: sudo -E molecule create -s $MOLECULE_SCENARIO_NAME
-      env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule converge
+    - &converge
+      stage: converge
       script: sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *converge
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *converge
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *converge
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *converge
       env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule idempotence
-      script: travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
+
+    - &idempotence
+      stage: idempotence
+      script: travis_wait sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *idempotence
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *idempotence
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *idempotence
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *idempotence
       env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
-    - stage: molecule verify
+    
+    - &verify
+      stage: verify
       script: sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
+      env: MOLECULE_SCENARIO_NAME="ubuntu-18.04"
+    - <<: *verify
+      env: MOLECULE_SCENARIO_NAME="centos-7"
+    - <<: *verify
+      env: MOLECULE_SCENARIO_NAME="suse-15"
+    - <<: *verify
+      env: MOLECULE_SCENARIO_NAME="ubuntu-16.04"
+    - <<: *verify
       env: MOLECULE_SCENARIO_NAME="ubuntu-19.10"
   allow_failures:
     - env: MOLECULE_SCENARIO_NAME="centos-7"
