@@ -6,17 +6,7 @@ dist: bionic
 
 language: shell
 
-cache:
-  directories:
-    - $HOME/.cache
-    - $HOME/.vagrant.d
-
 env:
-  global:
-    - ANSIBLE_FORCE_COLOR=true
-    - ANSIBLE_LOG_PATH="$TRAVIS_BUILD_DIR/ansible.log"
-    - ANSIBLE_ROLES_PATH="$HOME/.ansible/roles"
-    - MOLECULE_INSTANCE_NAME="$USER-$TRAVIS_BUILD_ID"
   jobs:
     - MOLECULE_SCENARIO_NAME="centos-7"
     - MOLECULE_SCENARIO_NAME="suse-15"
@@ -55,12 +45,13 @@ install:
 
 script:
   - |
-    sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME
-    sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME
-    sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME
-    sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME
-    travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME
-    sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
+    source ./scripts/run-tests.sh \
+      && sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME \
+      && sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME \
+      && sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME \
+      && sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME \
+      && travis_wait 120 sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME \
+      && sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
