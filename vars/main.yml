@@ -28,4 +28,5 @@ _pip:
   - { state: "latest", name: "pyyaml" }
   - { state: "latest", name: "urllib3" }
   - { state: "latest", name: "selinux" }
+  - { state: "latest", name: "openshift" }
   - { state: "latest", name: "argcomplete" }
