@@ -17,5 +17,6 @@
 - hosts: all
   remote_user: root
   become: true
-  roles:
-    - role: python
+  tasks:
+    - include_role:
+        name: python
