@@ -13,15 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-_yum_config_manager: []
-
-_yum:
-  - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "curl" }
-  - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "make" }
-  - { state: "latest", name: "openssl-devel" }
-  - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python3-devel" }
