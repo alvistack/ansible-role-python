@@ -30,3 +30,4 @@ _pip:
   - { state: "latest", name: "selinux" }
   - { state: "latest", name: "openshift" }
   - { state: "latest", name: "argcomplete" }
+  - { state: "latest", name: "jmespath" }
