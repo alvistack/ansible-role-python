@@ -59,6 +59,22 @@
     - { dest: "/etc/bash_completion.d" }
   tags: python
 
+- name: python get-pip.py
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  vars:
+    ansible_python_interpreter: "python3"
+  shell: |
+    set -o pipefail
+    curl -skL https://bootstrap.pypa.io/get-pip.py | python3 - --prefix=/usr/local
+  args:
+    executable: "/bin/bash"
+    creates: "/usr/local/bin/pip3"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
+  tags: python
+
 - name: pip install
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -80,10 +96,8 @@
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   command: python3 /usr/local/bin/activate-global-python-argcomplete
-  args:
-    creates: "/etc/bash_completion.d/python-argcomplete"
-  register: result
-  changed_when: result is not succeeded
+  changed_when: false
+  ignore_errors: true
   tags: python
 
 - name: prepare files
