@@ -87,20 +87,17 @@
     extra_args: "--ignore-installed --prefix=/usr/local"
     executable: "pip3"
   loop: "{{ pip }}"
-  register: pip_result
-  until: pip_result is succeeded
-  changed_when: pip_result is not succeeded
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
   tags: python
 
 - name: install bash completion
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  shell: |
-    set -o pipefail
-    python3 /usr/local/bin/activate-global-python-argcomplete
-  args:
-    executable: "/bin/bash"
-  when: pip_result is changed
+  command: python3 /usr/local/bin/activate-global-python-argcomplete
+  changed_when: false
+  ignore_errors: true
   tags: python
 
 - name: prepare files
