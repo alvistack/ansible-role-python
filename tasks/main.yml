@@ -16,7 +16,6 @@
 
 - name: include default variables
   include_vars: "../vars/main.yml"
-  tags: python
 
 - name: include release specific variables
   include_vars: "{{ lookup('first_found', _params) }}"
@@ -31,7 +30,6 @@
       paths:
         - "../vars"
   ignore_errors: true
-  tags: python
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -46,7 +44,6 @@
       paths:
         - "."
   ignore_errors: true
-  tags: python
 
 - name: prepare directories
   file:
@@ -57,7 +54,6 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/bash_completion.d" }
-  tags: python
 
 - name: python get-pip.py
   environment:
@@ -73,7 +69,6 @@
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
-  tags: python
 
 - name: pip install
   environment:
@@ -90,7 +85,6 @@
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
-  tags: python
 
 - name: install bash completion
   environment:
@@ -98,7 +92,6 @@
   command: python3 /usr/local/bin/activate-global-python-argcomplete
   changed_when: false
   ignore_errors: true
-  tags: python
 
 - name: prepare files
   file:
@@ -109,4 +102,3 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/bash_completion.d/python-argcomplete" }
-  tags: python

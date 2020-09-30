@@ -20,14 +20,12 @@
     state: "present"
   changed_when: false
   ignore_errors: true
-  tags: python
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
   loop: "{{ _yum_config_manager }}"
   changed_when: false
   ignore_errors: true
-  tags: python
 
 - name: yum install
   yum:
@@ -36,4 +34,3 @@
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded
-  tags: python
