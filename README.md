@@ -1,6 +1,6 @@
 # Ansible Role for Python
 
-[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-python.svg)](https://travis-ci.com/alvistack/ansible-role-python)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-python/master)](https://gitlab.com/alvistack/ansible-role-python/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.python-blue.svg)](https://galaxy.ansible.com/alvistack/python)
