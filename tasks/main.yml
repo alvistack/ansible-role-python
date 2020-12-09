@@ -61,7 +61,7 @@
   vars:
     ansible_python_interpreter: "python3"
   shell: |
-    set -o pipefail
+    set -euo pipefail
     curl -skL https://bootstrap.pypa.io/get-pip.py | python3 - --prefix=/usr/local
   args:
     executable: "/bin/bash"
