@@ -19,7 +19,7 @@ _pip:
   - { state: "latest", name: "setuptools" }
   - { state: "latest", name: "wheel" }
   - { state: "latest", name: "requests" }
-  - { state: "latest", name: "pycparser" }
+  - { state: "latest", name: "pycparser", extra_args: "--ignore-installed" }
   - { state: "latest", name: "pyopenssl" }
   - { state: "latest", name: "ndg-httpsclient" }
   - { state: "latest", name: "chardet" }
