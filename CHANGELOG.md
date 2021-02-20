@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Improve HTTP transparent proxy support
   - Support CentOS 8 Stream
   - Support openSUSE Tumbleweed
   - Migrate base Vagrant box from `generic/*` to `alvistack/*`
