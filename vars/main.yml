@@ -16,6 +16,8 @@
 
 _pip:
   - { state: "latest", name: "pipx" }
+  - { state: "latest", name: "docker" }
+  - { state: "latest", name: "openshift" }
 
 _pipx:
   - { state: "install", name: "argcomplete", args: "--include-deps" }
