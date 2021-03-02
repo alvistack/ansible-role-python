@@ -31,3 +31,10 @@
       command: pip3 --version
       register: result
       changed_when: result is not succeeded
+
+    - name: pipx --version
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      command: pipx --version
+      register: result
+      changed_when: result is not succeeded

@@ -15,20 +15,7 @@
 # limitations under the License.
 
 _pip:
-  - { state: "latest", name: "pip" }
-  - { state: "latest", name: "setuptools" }
-  - { state: "latest", name: "wheel" }
-  - { state: "latest", name: "argcomplete" }
-  - { state: "latest", name: "chardet" }
-  - { state: "latest", name: "jmespath" }
-  - { state: "latest", name: "lxml" }
-  - { state: "latest", name: "ndg-httpsclient" }
-  - { state: "latest", name: "openshift" }
-  - { state: "latest", name: "pyasn1" }
-  - { state: "latest", name: "pyopenssl" }
-  - { state: "latest", name: "requests" }
-  - { state: "latest", name: "selinux" }
-  - { state: "latest", name: "urllib3" }
-  - { state: "latest", name: "pexpect", extra_args: "--ignore-installed" }
-  - { state: "latest", name: "pycparser", extra_args: "--ignore-installed" }
-  - { state: "latest", name: "pyyaml", extra_args: "--ignore-installed" }
+  - { state: "latest", name: "pipx" }
+
+_pipx:
+  - { state: "install", name: "argcomplete", args: "--include-deps" }
