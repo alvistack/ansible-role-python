@@ -16,3 +16,6 @@
 
 # Specify PIP packages.
 pip: "{{ _pip }}"
+
+# Specify pipx packages.
+pipx: "{{ _pipx }}"

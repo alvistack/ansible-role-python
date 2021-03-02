@@ -54,21 +54,17 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/bash_completion.d" }
+    - { dest: "/etc/profile.d" }
 
-- name: python get-pip.py
-  environment:
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  vars:
-    ansible_python_interpreter: "python3"
-  shell: |
-    set -euo pipefail
-    curl -skL http://bootstrap.pypa.io/get-pip.py | python3 - --prefix=/usr/local
-  args:
-    executable: "/bin/bash"
-    creates: "/usr/local/bin/pip3"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
+- name: copy templates
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "/etc/profile.d/pipx.sh" }
 
 - name: pip install
   environment:
@@ -82,6 +78,20 @@
     extra_args: "--prefix=/usr/local --upgrade {{ item.extra_args | default(None) }}"
     executable: "pip3"
   loop: "{{ pip }}"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
+
+- name: pipx install
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  shell: |
+    set -euo pipefail
+    source /etc/profile.d/pipx.sh
+    pipx {{ item.state }} --force {{ item.args | default('') }} "{{ item.name }}"
+  args:
+    executable: "/bin/bash"
+  loop: "{{ pipx }}"
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
@@ -102,3 +112,4 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/bash_completion.d/python-argcomplete" }
+    - { dest: "/etc/profile.d/pipx.sh" }
