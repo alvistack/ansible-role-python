@@ -88,7 +88,7 @@
   shell: |
     set -euo pipefail
     source /etc/profile.d/pipx.sh
-    pipx {{ item.state }} --force {{ item.args }} "{{ item.name }}"
+    pipx {{ item.state }} --force {{ item.args | default('') }} "{{ item.name }}"
   args:
     executable: "/bin/bash"
   loop: "{{ pipx }}"
