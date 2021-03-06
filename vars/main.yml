@@ -19,3 +19,5 @@ _pip:
 
 _pipx:
   - { state: "install", name: "argcomplete" }
+  - { state: "install", name: "flake8" }
+  - { state: "install", name: "yamllint" }
