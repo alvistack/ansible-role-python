@@ -18,4 +18,6 @@ _pip:
   - { state: "latest", name: "pipx" }
 
 _pipx:
-  - { state: "install", name: "argcomplete", args: "--include-deps" }
+  - { state: "install", name: "argcomplete" }
+  - { state: "install", name: "flake8" }
+  - { state: "install", name: "yamllint" }

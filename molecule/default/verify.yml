@@ -38,3 +38,17 @@
       command: pipx --version
       register: result
       changed_when: result is not succeeded
+
+    - name: yamllint --version
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      command: yamllint --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: flake8 --version
+      environment:
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      command: flake8 --version
+      register: result
+      changed_when: result is not succeeded
