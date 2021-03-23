@@ -88,7 +88,9 @@
   shell: |
     set -euo pipefail
     source /etc/profile.d/pipx.sh
-    pipx {{ item.state }} --force {{ item.args | default('') }} {{ item.name }} {{ item.dependency | default('') }}
+    pipx {{ item.state }} \
+        --force --pip-args='--upgrade' {{ item.args | default('') }} \
+        {{ item.name }} {{ item.dependency | default('') }}
   args:
     executable: "/bin/bash"
   loop: "{{ pipx }}"
