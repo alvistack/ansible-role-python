@@ -51,13 +51,13 @@
     creates: "{{ item.dest }}.log"
   loop: "{{ _rpm_download }}"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
   loop: "{{ _yum_config_manager }}"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: yum install
   yum:
