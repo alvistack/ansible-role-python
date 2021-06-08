@@ -94,7 +94,7 @@
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     source /etc/profile.d/pipx.sh
     pipx {{ item.state }} \
         --force --pip-args='--upgrade' {{ item.args | default('') }} \
