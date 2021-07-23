@@ -27,12 +27,9 @@
 
 ### Major Changes
 
-  - Bugfix [ansible-lint
-    `namespace`](https://github.com/ansible-community/ansible-lint/pull/1451)
-  - Bugfix [ansible-lint
-    `no-handler`](https://github.com/ansible-community/ansible-lint/pull/1402)
-  - Bugfix [ansible-lint
-    `unnamed-task`](https://github.com/ansible-community/ansible-lint/pull/1413)
+  - Bugfix [ansible-lint `namespace`](https://github.com/ansible-community/ansible-lint/pull/1451)
+  - Bugfix [ansible-lint `no-handler`](https://github.com/ansible-community/ansible-lint/pull/1402)
+  - Bugfix [ansible-lint `unnamed-task`](https://github.com/ansible-community/ansible-lint/pull/1413)
   - Install Python package with `pipx`
   - Simplify Python dependency with system packages
   - Support RHEL 8 with Molecule
@@ -179,8 +176,7 @@
 ### Major Changes
 
   - Porting test to Molecule based
-  - Remove initial Python bootstrap with raw since Molecule already
-    handle it
+  - Remove initial Python bootstrap with raw since Molecule already handle it
 
 ## 2.2.0 - 2019-01-23
 
@@ -211,8 +207,7 @@
   - Remove support for optional package installation
   - Install Python 2.7 on Ubuntu 16.04/18.04 from stock package
   - Install Python 2.7 on CentOS 7 from stock package
-  - Install Python 2.6 on CentOS 6 from stock page, plus pinning with
-    legacy support
+  - Install Python 2.6 on CentOS 6 from stock page, plus pinning with legacy support
   - Keep APT/YUM cache as-is
   - Update Travis CI test plan
 
@@ -229,5 +224,4 @@
 
   - Ininitial release for Ansible 2.4
   - Support both Ubuntu 16.04/14.04 or RHEL/CentOS 7/6
-  - Support running role with `gather_faces: no` to initialize Python on
-    system that not yet pre-installed with Python.
+  - Support running role with `gather_faces: no` to initialize Python on system that not yet pre-installed with Python.
