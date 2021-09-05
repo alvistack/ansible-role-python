@@ -14,11 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key: []
+_rpm_key:
+  - key: "http://download.opensuse.org/repositories/home:/alvistack/Fedora_34/repodata/repomd.xml.key"
+    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+    state: "present"
 
 _rpm_download: []
 
 _yum_config_manager: []
+
+_yum_repository:
+  - file: "home:alvistack"
+    name: "home_alvistack"
+    description: "home:alvistack (Fedora_34)"
+    baseurl: "http://download.opensuse.org/repositories/home:/alvistack/Fedora_34"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "http://download.opensuse.org/repositories/home:/alvistack/Fedora_34/repodata/repomd.xml.key"
+    state: "present"
 
 _yum:
   - { state: "latest", name: "bash-completion" }
@@ -38,3 +52,4 @@ _yum:
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "pipx" }

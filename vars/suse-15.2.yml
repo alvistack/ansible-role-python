@@ -14,6 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_zypper_repository:
+  - name: "home:alvistack"
+    repo: "http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.2"
+    state: "present"
+
 _zypper:
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
@@ -31,3 +36,4 @@ _zypper:
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "pipx" }

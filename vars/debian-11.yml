@@ -14,6 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_key:
+  - url: "http://download.opensuse.org/repositories/home:/alvistack/Debian_11/Release.key"
+    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+    state: "present"
+
+_apt_repository:
+  - repo: "deb http://download.opensuse.org/repositories/home:/alvistack/Debian_11 /"
+    state: "present"
+
 _apt:
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
@@ -33,3 +42,4 @@ _apt:
   - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "pipx" }
