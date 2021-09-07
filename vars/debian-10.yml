@@ -44,3 +44,4 @@ _apt:
   - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python3-yamllint" }

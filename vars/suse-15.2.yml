@@ -38,3 +38,4 @@ _zypper:
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python3-yamllint" }
