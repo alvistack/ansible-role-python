@@ -27,6 +27,7 @@ _zypper:
   - { state: "latest", name: "libopenssl-devel" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "python38" }
+  - { state: "latest", name: "python38-argcomplete" }
   - { state: "latest", name: "python38-cryptography" }
   - { state: "latest", name: "python38-devel" }
   - { state: "latest", name: "python38-jmespath" }

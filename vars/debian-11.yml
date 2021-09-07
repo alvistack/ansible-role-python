@@ -32,6 +32,7 @@ _apt:
   - { state: "latest", name: "make" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
+  - { state: "latest", name: "python3-argcomplete" }
   - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-dev" }
   - { state: "latest", name: "python3-jmespath" }
