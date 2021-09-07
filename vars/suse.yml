@@ -30,6 +30,7 @@ _zypper:
   - { state: "latest", name: "python38-argcomplete" }
   - { state: "latest", name: "python38-cryptography" }
   - { state: "latest", name: "python38-devel" }
+  - { state: "latest", name: "python38-flake8" }
   - { state: "latest", name: "python38-jmespath" }
   - { state: "latest", name: "python38-lxml" }
   - { state: "latest", name: "python38-netaddr" }

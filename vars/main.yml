@@ -16,5 +16,4 @@
 
 _pip: []
 
-_pipx:
-  - { state: "install", name: "flake8" }
+_pipx: []
