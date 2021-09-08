@@ -109,13 +109,6 @@
   until: result is succeeded
   changed_when: result is not succeeded
 
-- name: install bash completion
-  environment:
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  command: python3 /usr/local/bin/activate-global-python-argcomplete
-  changed_when: false
-  failed_when: false
-
 - name: prepare files
   file:
     dest: "{{ item.dest }}"
@@ -124,5 +117,4 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
-    - { dest: "/etc/bash_completion.d/python-argcomplete" }
     - { dest: "/etc/profile.d/pipx.sh" }
