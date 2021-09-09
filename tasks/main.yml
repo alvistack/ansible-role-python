@@ -74,41 +74,6 @@
   loop:
     - { dest: "/etc/profile.d/pipx.sh" }
 
-- name: pip install
-  environment:
-    LANG: "en_US.UTF-8"
-    LC_ALL: "en_US.UTF-8"
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  vars:
-    ansible_python_interpreter: "python3"
-  pip:
-    name: "{{ item.name }}"
-    state: "{{ item.state | default(None) or omit }}"
-    version: "{{ item.version | default(None) or omit }}"
-    extra_args: "--prefix=/usr/local --upgrade {{ item.extra_args | default(None) }}"
-    executable: "pip3"
-  loop: "{{ pip }}"
-  register: result
-  until: result is succeeded
-
-- name: pipx install
-  environment:
-    LANG: "en_US.UTF-8"
-    LC_ALL: "en_US.UTF-8"
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  shell: |
-    set -euxo pipefail
-    source /etc/profile.d/pipx.sh
-    pipx {{ item.state }} \
-        --force --pip-args='--upgrade' {{ item.args | default('') }} \
-        {{ item.name }} {{ item.dependency | default('') }}
-  args:
-    executable: "/bin/bash"
-  loop: "{{ pipx }}"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
-
 - name: prepare files
   file:
     dest: "{{ item.dest }}"
