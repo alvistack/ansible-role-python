@@ -14,6 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_rpm_key:
+  - key: "http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+    state: "present"
+
+_yum_repository:
+  - file: "home:alvistack"
+    name: "home_alvistack"
+    description: "home:alvistack (openSUSE_Tumbleweed)"
+    baseurl: "http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+    state: "present"
+
 _zypper:
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
@@ -21,13 +37,17 @@ _zypper:
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "libopenssl-devel" }
   - { state: "latest", name: "make" }
-  - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python3-cryptography" }
-  - { state: "latest", name: "python3-devel" }
-  - { state: "latest", name: "python3-jmespath" }
-  - { state: "latest", name: "python3-lxml" }
-  - { state: "latest", name: "python3-netaddr" }
-  - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python3-setuptools" }
-  - { state: "latest", name: "python3-virtualenv" }
-  - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python38" }
+  - { state: "latest", name: "python38-argcomplete" }
+  - { state: "latest", name: "python38-cryptography" }
+  - { state: "latest", name: "python38-devel" }
+  - { state: "latest", name: "python38-flake8" }
+  - { state: "latest", name: "python38-jmespath" }
+  - { state: "latest", name: "python38-lxml" }
+  - { state: "latest", name: "python38-netaddr" }
+  - { state: "latest", name: "python38-pip" }
+  - { state: "latest", name: "python38-pipx" }
+  - { state: "latest", name: "python38-setuptools" }
+  - { state: "latest", name: "python38-virtualenv" }
+  - { state: "latest", name: "python38-wheel" }
+  - { state: "latest", name: "python38-yamllint" }

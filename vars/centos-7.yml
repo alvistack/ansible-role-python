@@ -15,16 +15,20 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
-    fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
+  - key: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
     state: "present"
 
-_rpm_download:
-  - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
-    dest: "/var/cache/ansible/46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed/epel-release-latest-7.noarch.rpm"
-    checksum: "46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed"
-
-_yum_config_manager: []
+_yum_repository:
+  - file: "home:alvistack"
+    name: "home_alvistack"
+    description: "home:alvistack (CentOS_7)"
+    baseurl: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+    state: "present"
 
 _yum:
   - { state: "latest", name: "bash-completion" }
@@ -34,13 +38,17 @@ _yum:
   - { state: "latest", name: "make" }
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python36-cryptography" }
+  - { state: "latest", name: "python3-argcomplete" }
+  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-flake8" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-libselinux" }
   - { state: "latest", name: "python3-lxml" }
-  - { state: "latest", name: "python36-netaddr" }
+  - { state: "latest", name: "python3-netaddr" }
   - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-pipx" }
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python3-yamllint" }

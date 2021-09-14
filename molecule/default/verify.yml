@@ -19,36 +19,31 @@
   become: true
   tasks:
     - name: python3 --version
-      environment:
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       command: python3 --version
       register: result
       changed_when: result is not succeeded
 
     - name: pip3 --version
-      environment:
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       command: pip3 --version
       register: result
       changed_when: result is not succeeded
 
     - name: pipx --version
-      environment:
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       command: pipx --version
       register: result
       changed_when: result is not succeeded
 
+    - name: activate-global-python-argcomplete --help
+      command: activate-global-python-argcomplete --help
+      register: result
+      changed_when: result is not succeeded
+
     - name: yamllint --version
-      environment:
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       command: yamllint --version
       register: result
       changed_when: result is not succeeded
 
     - name: flake8 --version
-      environment:
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       command: flake8 --version
       register: result
       changed_when: result is not succeeded

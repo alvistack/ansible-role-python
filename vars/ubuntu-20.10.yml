@@ -14,22 +14,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_key:
+  - url: "http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.10/Release.key"
+    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+    state: "present"
+
+_apt_repository:
+  - repo: "deb http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.10 /"
+    state: "present"
+
 _apt:
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
+  - { state: "latest", name: "flake8" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-dev" }
   - { state: "latest", name: "libssl-dev" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
+  - { state: "latest", name: "python3-argcomplete" }
   - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-dev" }
+  - { state: "latest", name: "python3-flake8" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-netaddr" }
   - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-pipx" }
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python3-yamllint" }
