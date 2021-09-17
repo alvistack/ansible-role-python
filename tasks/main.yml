@@ -61,7 +61,6 @@
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
   loop:
-    - { dest: "/etc/bash_completion.d" }
     - { dest: "/etc/profile.d" }
 
 - name: copy templates
