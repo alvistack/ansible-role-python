@@ -32,7 +32,6 @@ _yum_repository:
     state: "present"
 
 _yum:
-  - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-devel" }
