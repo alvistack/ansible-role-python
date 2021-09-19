@@ -26,7 +26,6 @@ _apt_repository:
     state: "present"
 
 _apt:
-  - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "flake8" }
   - { state: "latest", name: "gcc" }
