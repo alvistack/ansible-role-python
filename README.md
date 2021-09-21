@@ -1,5 +1,7 @@
 # Ansible Role for Python
 
+<img src="/alvistack.svg" width="75" alt="AlviStack">
+
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-python/master)](https://gitlab.com/alvistack/ansible-role-python/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-python.svg)](https://github.com/alvistack/ansible-role-python/blob/master/LICENSE)
