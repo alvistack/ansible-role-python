@@ -44,7 +44,7 @@ _yum:
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "make" }
-  - { state: "latest", name: "openssl-devel" }
+  - { state: "latest", name: "openssl11-devel" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-argcomplete" }
   - { state: "latest", name: "python3-cryptography" }
