@@ -19,31 +19,31 @@
   become: true
   tasks:
     - name: python3 --version
-      command: python3 --version
+      ansible.builtin.command: python3 --version
       register: result
       changed_when: result is not succeeded
 
     - name: pip3 --version
-      command: pip3 --version
+      ansible.builtin.command: pip3 --version
       register: result
       changed_when: result is not succeeded
 
     - name: pipx --version
-      command: pipx --version
+      ansible.builtin.command: pipx --version
       register: result
       changed_when: result is not succeeded
 
     - name: activate-global-python-argcomplete --help
-      command: activate-global-python-argcomplete --help
+      ansible.builtin.command: activate-global-python-argcomplete --help
       register: result
       changed_when: result is not succeeded
 
     - name: yamllint --version
-      command: yamllint --version
+      ansible.builtin.command: yamllint --version
       register: result
       changed_when: result is not succeeded
 
     - name: flake8 --version
-      command: flake8 --version
+      ansible.builtin.command: flake8 --version
       register: result
       changed_when: result is not succeeded
