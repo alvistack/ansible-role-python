@@ -32,6 +32,7 @@ _apt:
   - { state: "latest", name: "libffi-dev" }
   - { state: "latest", name: "libssl-dev" }
   - { state: "latest", name: "make" }
+  - { state: "latest", name: "pipx" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
   - { state: "latest", name: "python3-argcomplete" }
@@ -41,9 +42,8 @@ _apt:
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-netaddr" }
   - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python3-pipx" }
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "python3-yamllint" }
+  - { state: "latest", name: "yamllint" }
