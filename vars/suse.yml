@@ -37,16 +37,16 @@ _zypper:
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "libopenssl-devel" }
   - { state: "latest", name: "make" }
-  - { state: "latest", name: "python38" }
-  - { state: "latest", name: "python38-argcomplete" }
-  - { state: "latest", name: "python38-cryptography" }
-  - { state: "latest", name: "python38-flake8" }
-  - { state: "latest", name: "python38-jmespath" }
-  - { state: "latest", name: "python38-lxml" }
-  - { state: "latest", name: "python38-netaddr" }
-  - { state: "latest", name: "python38-pip" }
-  - { state: "latest", name: "python38-pipx" }
-  - { state: "latest", name: "python38-setuptools" }
-  - { state: "latest", name: "python38-virtualenv" }
-  - { state: "latest", name: "python38-wheel" }
-  - { state: "latest", name: "python38-yamllint" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-argcomplete" }
+  - { state: "latest", name: "python3-cryptography" }
+  - { state: "latest", name: "python3-flake8" }
+  - { state: "latest", name: "python3-jmespath" }
+  - { state: "latest", name: "python3-lxml" }
+  - { state: "latest", name: "python3-netaddr" }
+  - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-pipx" }
+  - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-virtualenv" }
+  - { state: "latest", name: "python3-wheel" }
+  - { state: "latest", name: "python3-yamllint" }
