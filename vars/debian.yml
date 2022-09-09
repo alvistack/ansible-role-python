@@ -26,6 +26,8 @@ _apt_repository:
     state: "present"
 
 _apt:
+  - { state: "latest", name: "python3-openssl" }
+  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "flake8" }
   - { state: "latest", name: "gcc" }
@@ -36,7 +38,6 @@ _apt:
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
   - { state: "latest", name: "python3-argcomplete" }
-  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-flake8" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }

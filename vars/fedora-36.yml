@@ -34,6 +34,8 @@ _yum_repository:
     state: "present"
 
 _yum:
+  - { state: "latest", name: "python3-pyOpenSSL" }
+  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "libffi-devel" }
@@ -42,7 +44,6 @@ _yum:
   - { state: "latest", name: "pipx" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-argcomplete" }
-  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-flake8" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-libselinux" }
