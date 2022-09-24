@@ -14,49 +14,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key:
-  - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
-    fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
-    state: "present"
-  - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
-    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+_apt_key:
+  - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+    url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.10/Release.key"
+    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
     state: "present"
 
-_rpm_download:
-  - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
-    dest: "/var/cache/ansible/2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c/epel-release-latest-9.noarch.rpm"
-    checksum: "2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c"
-
-_yum_repository:
-  - file: "home:alvistack"
-    name: "home_alvistack"
-    description: "home:alvistack (CentOS_9_Stream)"
-    baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream"
-    enabled: true
-    priority: "2"
-    module_hotfixes: true
-    gpgcheck: true
-    gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
+_apt_repository:
+  - filename: "home:alvistack"
+    repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.10/ /"
     state: "present"
 
-_yum:
+_apt:
   - { state: "latest", name: "curl" }
+  - { state: "latest", name: "flake8" }
   - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "libffi-devel" }
+  - { state: "latest", name: "libffi-dev" }
+  - { state: "latest", name: "libssl-dev" }
   - { state: "latest", name: "make" }
-  - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "pipx" }
   - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-apt" }
   - { state: "latest", name: "python3-argcomplete" }
   - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-flake8" }
   - { state: "latest", name: "python3-jmespath" }
-  - { state: "latest", name: "python3-libselinux" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-netaddr" }
+  - { state: "latest", name: "python3-openssl" }
   - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python3-pyopenssl" }
   - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "yamllint" }
