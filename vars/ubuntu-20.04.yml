@@ -15,36 +15,36 @@
 # limitations under the License.
 
 _apt_key:
-  - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-    url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key"
-    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-    state: "present"
+  - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
+    url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
+    id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
 
 _apt_repository:
-  - filename: "home:alvistack"
-    repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/ /"
-    state: "present"
+  - filename: home:alvistack
+    repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/ /
+    state: present
 
 _apt:
-  - { state: "latest", name: "curl" }
-  - { state: "latest", name: "flake8" }
-  - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "libffi-dev" }
-  - { state: "latest", name: "libssl-dev" }
-  - { state: "latest", name: "make" }
-  - { state: "latest", name: "pipx" }
-  - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python3-apt" }
-  - { state: "latest", name: "python3-argcomplete" }
-  - { state: "latest", name: "python3-cryptography" }
-  - { state: "latest", name: "python3-flake8" }
-  - { state: "latest", name: "python3-jmespath" }
-  - { state: "latest", name: "python3-lxml" }
-  - { state: "latest", name: "python3-netaddr" }
-  - { state: "latest", name: "python3-openssl" }
-  - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python3-setuptools" }
-  - { state: "latest", name: "python3-venv" }
-  - { state: "latest", name: "python3-virtualenv" }
-  - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "yamllint" }
+  - { state: latest, name: curl }
+  - { state: latest, name: flake8 }
+  - { state: latest, name: gcc }
+  - { state: latest, name: libffi-dev }
+  - { state: latest, name: libssl-dev }
+  - { state: latest, name: make }
+  - { state: latest, name: pipx }
+  - { state: latest, name: python3 }
+  - { state: latest, name: python3-apt }
+  - { state: latest, name: python3-argcomplete }
+  - { state: latest, name: python3-cryptography }
+  - { state: latest, name: python3-flake8 }
+  - { state: latest, name: python3-jmespath }
+  - { state: latest, name: python3-lxml }
+  - { state: latest, name: python3-netaddr }
+  - { state: latest, name: python3-openssl }
+  - { state: latest, name: python3-pip }
+  - { state: latest, name: python3-setuptools }
+  - { state: latest, name: python3-venv }
+  - { state: latest, name: python3-virtualenv }
+  - { state: latest, name: python3-wheel }
+  - { state: latest, name: yamllint }

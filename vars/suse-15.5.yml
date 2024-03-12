@@ -15,39 +15,39 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5/repodata/repomd.xml.key"
-    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-    state: "present"
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5/repodata/repomd.xml.key
+    fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
 
 _yum_repository:
-  - file: "home_alvistack"
-    name: "home_alvistack"
-    description: "home:alvistack (openSUSE_Leap_15.5)"
-    baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5"
+  - file: home_alvistack
+    name: home_alvistack
+    description: home:alvistack (openSUSE_Leap_15.5)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5/repodata/repomd.xml.key"
-    state: "present"
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.5/repodata/repomd.xml.key
+    state: present
 
 _zypper:
-  - { state: "latest", name: "curl" }
-  - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "libopenssl-devel" }
-  - { state: "latest", name: "make" }
-  - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python3-argcomplete" }
-  - { state: "latest", name: "python3-cryptography" }
-  - { state: "latest", name: "python3-flake8" }
-  - { state: "latest", name: "python3-jmespath" }
-  - { state: "latest", name: "python3-lxml" }
-  - { state: "latest", name: "python3-netaddr" }
-  - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python3-pipx" }
-  - { state: "latest", name: "python3-pyOpenSSL" }
-  - { state: "latest", name: "python3-setuptools" }
-  - { state: "latest", name: "python3-virtualenv" }
-  - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "python3-yamllint" }
+  - { state: latest, name: curl }
+  - { state: latest, name: gcc }
+  - { state: latest, name: libffi-devel }
+  - { state: latest, name: libopenssl-devel }
+  - { state: latest, name: make }
+  - { state: latest, name: python3 }
+  - { state: latest, name: python3-argcomplete }
+  - { state: latest, name: python3-cryptography }
+  - { state: latest, name: python3-flake8 }
+  - { state: latest, name: python3-jmespath }
+  - { state: latest, name: python3-lxml }
+  - { state: latest, name: python3-netaddr }
+  - { state: latest, name: python3-pip }
+  - { state: latest, name: python3-pipx }
+  - { state: latest, name: python3-pyOpenSSL }
+  - { state: latest, name: python3-setuptools }
+  - { state: latest, name: python3-virtualenv }
+  - { state: latest, name: python3-wheel }
+  - { state: latest, name: python3-yamllint }
