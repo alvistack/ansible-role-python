@@ -19,7 +19,6 @@ _rpm_key:
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
-_rpm_download: []
 _yum_repository:
   - file: home:alvistack
     name: home_alvistack
